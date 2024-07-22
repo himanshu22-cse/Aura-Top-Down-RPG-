@@ -38,75 +38,75 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(BlueprintReadWrite)
-		FVector CalculatedLocation;
+	FVector CalculatedLocation;
 
 	UPROPERTY(BlueprintReadWrite)
-		FRotator CalculatedRotation;
+	FRotator CalculatedRotation;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
-		bool bRotates = false;
+	bool bRotates = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
-		float RotationRate = 45.f;
+	float RotationRate = 45.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
-		bool bSinusoidalMovement = false;
+	bool bSinusoidalMovement = false;
 
 	UFUNCTION(BlueprintCallable)
-		void StartSinusoidalMovement();
+	void StartSinusoidalMovement();
 
 	UFUNCTION(BlueprintCallable)
-		void StartRotation();
+	void StartRotation();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
-		float SineAmplitude = 1.f;
+	float SineAmplitude = 1.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
-		float SinePeriodConstant = 1.f;
+	float SinePeriodConstant = 1.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
-		FVector InitialLocation;
+	FVector InitialLocation;
 
 	UFUNCTION(BlueprintCallable)
-		void ApplyEffectToTarget(AActor* TargetActor, TSubclassOf<UGameplayEffect> GameplayEffectClass);
+	void ApplyEffectToTarget(AActor* TargetActor, TSubclassOf<UGameplayEffect> GameplayEffectClass);
 
 	UFUNCTION(BlueprintCallable)
-		void OnOverlap(AActor* TargetActor);
+	void OnOverlap(AActor* TargetActor);
 
 	UFUNCTION(BlueprintCallable)
-		void OnEndOverlap(AActor* TargetActor);
+	void OnEndOverlap(AActor* TargetActor);
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		bool bDestroyOnEffectApplication = false;
+	bool bDestroyOnEffectApplication = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		bool bApplyEffectsToEnemies = false;
+	bool bApplyEffectsToEnemies = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		TSubclassOf<UGameplayEffect> InstantGameplayEffectClass;
+	TSubclassOf<UGameplayEffect> InstantGameplayEffectClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		EEffectApplicationPolicy InstantEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
+	EEffectApplicationPolicy InstantEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		TSubclassOf<UGameplayEffect> DurationGameplayEffectClass;
+	TSubclassOf<UGameplayEffect> DurationGameplayEffectClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		EEffectApplicationPolicy DurationEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
+	EEffectApplicationPolicy DurationEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
+	TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		EEffectApplicationPolicy InfiniteEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
+	EEffectApplicationPolicy InfiniteEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-		EEffectRemovalPolicy InfiniteEffectRemovalPolicy = EEffectRemovalPolicy::RemoveOnEndOverlap;
+	EEffectRemovalPolicy InfiniteEffectRemovalPolicy = EEffectRemovalPolicy::RemoveOnEndOverlap;
 
 	TMap<FActiveGameplayEffectHandle, UAbilitySystemComponent*> ActiveEffectHandles;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Applied Effects")
-		float ActorLevel = 1.f;
+	float ActorLevel = 1.f;
 
 private:
 
