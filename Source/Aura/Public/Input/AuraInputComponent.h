@@ -10,7 +10,7 @@ class AURA_API UAuraInputComponent : public UEnhancedInputComponent
 {
 	GENERATED_BODY()
 
-public: 
+public:  
 
 	template<class UserClass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
 	void BindAbilityActions(const UAuraInputConfig* InputConfig, UserClass* Object, PressedFuncType PressedFunc, ReleasedFuncType ReleasedFunc, HeldFuncType HeldFunc);
