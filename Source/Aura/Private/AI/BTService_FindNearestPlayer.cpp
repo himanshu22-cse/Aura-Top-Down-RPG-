@@ -8,7 +8,7 @@ void UBTService_FindNearestPlayer::TickNode(UBehaviorTreeComponent& OwnerComp, u
 {
 	Super::TickNode(OwnerComp, NodeMemory, DeltaSeconds);
 
-	APawn* OwningPawn = AIOwner->GetPawn();
+	APawn* OwningPawn = AIOwPner->GetPawn();
 
 	const FName TargetTag = OwningPawn->ActorHasTag(FName("Player")) ? FName("Enemy") : FName("Player");
 
