@@ -12,7 +12,8 @@ AAuraPlayerState::AAuraPlayerState()
 
 	AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");
 
-	NetUpdateFrequency = 100.f;
+	NetUpdateFrequency = 100.f; // any variables that should be replicated, they'll update and the server will try to meet this net update frequency if it can.
+	
 }
 
 void AAuraPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
