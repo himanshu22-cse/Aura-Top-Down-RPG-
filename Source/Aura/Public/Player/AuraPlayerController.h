@@ -36,13 +36,13 @@ public:
 	virtual void PlayerTick(float DeltaTime) override;
 
 	UFUNCTION(Client, Reliable)
-		void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit);
+	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit);
 
 	UFUNCTION(BlueprintCallable)
-		void ShowMagicCircle(UMaterialInterface* DecalMaterial = nullptr);
+	void ShowMagicCircle(UMaterialInterface* DecalMaterial = nullptr);
 
 	UFUNCTION(BlueprintCallable)
-		void HideMagicCircle();
+	void HideMagicCircle();
 
 
 protected:
@@ -53,13 +53,13 @@ protected:
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		TObjectPtr<UInputMappingContext> AuraContext;
+	TObjectPtr<UInputMappingContext> AuraContext;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		TObjectPtr<UInputAction> MoveAction;
+	TObjectPtr<UInputAction> MoveAction;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		TObjectPtr<UInputAction> ShiftAction;
+	TObjectPtr<UInputAction> ShiftAction;
 
 	void ShiftPressed() { bShiftKeyDown = true; };
 	void ShiftReleased() { bShiftKeyDown = false; };
@@ -79,10 +79,10 @@ private:
 	void AbilityInputTagHeld(FGameplayTag InputTag);
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-		TObjectPtr<UAuraInputConfig> InputConfig;
+	TObjectPtr<UAuraInputConfig> InputConfig;
 
 	UPROPERTY()
-		TObjectPtr<UAuraAbilitySystemComponent> AuraAbilitySystemComponent;
+	TObjectPtr<UAuraAbilitySystemComponent> AuraAbilitySystemComponent;
 
 	UAuraAbilitySystemComponent* GetASC();
 
@@ -93,24 +93,24 @@ private:
 	ETargetingStatus TargetingStatus = ETargetingStatus::NotTargeting;
 
 	UPROPERTY(EditDefaultsOnly)
-		float AutoRunAcceptanceRadius = 50.f;
+	float AutoRunAcceptanceRadius = 50.f;
 
 	UPROPERTY(VisibleAnywhere)
-		TObjectPtr<USplineComponent> Spline;
+	TObjectPtr<USplineComponent> Spline;
 
 	UPROPERTY(EditDefaultsOnly)
-		TObjectPtr<UNiagaraSystem> ClickNiagaraSystem;
+	TObjectPtr<UNiagaraSystem> ClickNiagaraSystem;
 
 	void AutoRun();
 
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
+	TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
 
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<AMagicCircle> MagicCircleClass; // if i want one of these magic circle actors	
+	TSubclassOf<AMagicCircle> MagicCircleClass; // if i want one of these magic circle actors	
 
 	UPROPERTY()
-		TObjectPtr<AMagicCircle> MagicCircle;  // And in addition to Magic Circle class, we're going to want to be able to spawn one and keep a pointer to that magic circle.
+	TObjectPtr<AMagicCircle> MagicCircle;  // And in addition to Magic Circle class, we're going to want to be able to spawn one and keep a pointer to that magic circle.
 
 	void UpdateMagicCircleLocation();
 };

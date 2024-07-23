@@ -23,34 +23,31 @@ public:
 	UAttributeMenuWidgetController* GetAttributeMenuWidgetController(const FWidgetControllerParams& WCParams);
 	USpellMenuWidgetController* GetSpellMenuWidgetController(const FWidgetControllerParams& WCParams);
 
-	void InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS);
-
-protected:
-
+	void InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS); 
 
 private:
 
 	UPROPERTY()
-		TObjectPtr<UAuraUserWidget>  OverlayWidget;
+	TObjectPtr<UAuraUserWidget>OverlayWidget;
 
 	UPROPERTY(EditAnywhere)
-		TSubclassOf<UAuraUserWidget> OverlayWidgetClass;
+	TSubclassOf<UAuraUserWidget> OverlayWidgetClass;
 
 	UPROPERTY()
-		TObjectPtr<UOverlayWidgetController> OverlayWidgetController;
+	TObjectPtr<UOverlayWidgetController> OverlayWidgetController;
 
 	UPROPERTY(EditAnywhere)
-		TSubclassOf<UOverlayWidgetController> OverlayWidgetControllerClass;
+	TSubclassOf<UOverlayWidgetController> OverlayWidgetControllerClass;
 
 	UPROPERTY()
-		TObjectPtr<UAttributeMenuWidgetController> AttributeMenuWidgetController;
+	TObjectPtr<UAttributeMenuWidgetController> AttributeMenuWidgetController;
 
 	UPROPERTY(EditAnywhere)
-		TSubclassOf<UAttributeMenuWidgetController> AttributeMenuWidgetControllerClass;
+	TSubclassOf<UAttributeMenuWidgetController> AttributeMenuWidgetControllerClass;
 
 	UPROPERTY()
-		TObjectPtr<USpellMenuWidgetController> SpellMenuWidgetController;
+	TObjectPtr<USpellMenuWidgetController> SpellMenuWidgetController;
 
 	UPROPERTY(EditAnywhere)
-		TSubclassOf<USpellMenuWidgetController> SpellMenuWidgetControllerClass;
+	TSubclassOf<USpellMenuWidgetController> SpellMenuWidgetControllerClass;
 };

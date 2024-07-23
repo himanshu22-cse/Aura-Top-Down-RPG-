@@ -1,3 +1,5 @@
+//The widget controller class  will be responsible for getting that data and broadcasting it over to any widgets  so we add a set of variables from which it's going to get any information, any data.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -21,58 +23,64 @@ struct FWidgetControllerParams
 {
 	GENERATED_BODY()
 
-		FWidgetControllerParams() {}
+	FWidgetControllerParams() {}
 	FWidgetControllerParams(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)
 		: PlayerController(PC), PlayerState(PS), AbilitySystemComponent(ASC), AttributeSet(AS) {}
 
 	//Initilize the variable as if not compiler warning occur
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TObjectPtr<APlayerController> PlayerController = nullptr;
+	TObjectPtr<APlayerController> PlayerController = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TObjectPtr<APlayerState> PlayerState = nullptr;
+	TObjectPtr<APlayerState> PlayerState = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent = nullptr;
+	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TObjectPtr<UAttributeSet> AttributeSet = nullptr;
+	TObjectPtr<UAttributeSet> AttributeSet = nullptr;
+
 };
 
 
 UCLASS()
 class AURA_API UAuraWidgetController : public UObject
 {
+
 	GENERATED_BODY()
+
 public:
-	UFUNCTION(BlueprintCallable)
-		void SetWidgetControllerParams(const FWidgetControllerParams& WCParams);  // To Store and set the widgets and values
 
 	UFUNCTION(BlueprintCallable)
-		virtual void BroadcastInitialValues();
+	void SetWidgetControllerParams(const FWidgetControllerParams& WCParams);  // To Store and set the widgets and values
+
+	UFUNCTION(BlueprintCallable)
+	virtual void BroadcastInitialValues();
+
 	virtual void BindCallbacksToDependencies();
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Messages")
-		FAbilityInfoSignature AbilityInfoDelegate;
+	FAbilityInfoSignature AbilityInfoDelegate;
 
 	void BroadcastAbilityInfo();
+
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widget Data")
-		TObjectPtr<UAbilityInfo> AbilityInfo;
+	TObjectPtr<UAbilityInfo> AbilityInfo;
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<APlayerController> PlayerController;
+	TObjectPtr<APlayerController> PlayerController;
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<APlayerState> PlayerState;
+	TObjectPtr<APlayerState> PlayerState;
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<UAttributeSet> AttributeSet;
+	TObjectPtr<UAttributeSet> AttributeSet;
 
 	/*
 what I'm going to do is go into Aura widget controller and I'd still like all widget controllers
@@ -95,16 +103,16 @@ them. ( as for example see in overlay widget controller in broadcast  where we j
 */
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<AAuraPlayerController> AuraPlayerController;
+	TObjectPtr<AAuraPlayerController> AuraPlayerController;
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<AAuraPlayerState> AuraPlayerState;
+	TObjectPtr<AAuraPlayerState> AuraPlayerState;
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<UAuraAbilitySystemComponent> AuraAbilitySystemComponent;
+	TObjectPtr<UAuraAbilitySystemComponent> AuraAbilitySystemComponent;
 
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-		TObjectPtr<UAuraAttributeSet> AuraAttributeSet;
+	TObjectPtr<UAuraAttributeSet> AuraAttributeSet;
 
 	AAuraPlayerController* GetAuraPC();
 	AAuraPlayerState* GetAuraPS();

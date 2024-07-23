@@ -21,11 +21,11 @@ struct FSavedActor
 	GENERATED_BODY()
 
 
-		UPROPERTY()
-		FName ActorName = FName(); // if the actors that you're saving and loading are persistent, such as our checkpoints, their names should remain constant.
+	UPROPERTY()
+	FName ActorName = FName(); // if the actors that you're saving and loading are persistent, such as our checkpoints, their names should remain constant.
 
 	UPROPERTY()
-		FTransform Transform = FTransform();  //ome of your actors that you're saving and loading may have a transform or in other words, a location rotationand scale  And if you'd like to save that transform,  .
+	FTransform Transform = FTransform();  //ome of your actors that you're saving and loading may have a transform or in other words, a location rotationand scale  And if you'd like to save that transform,  .
 
 		/*
 		Now you could add any number of other variables here, such as gameplay tags like our saved ability
@@ -53,7 +53,7 @@ struct FSavedActor
 		So that's what bytes is going to contain.
 		*/
 	UPROPERTY()
-		TArray<uint8> Bytes;// Serialized variables from the Actor - only those marked with SaveGame specifier
+	TArray<uint8> Bytes;// Serialized variables from the Actor - only those marked with SaveGame specifier
 
 };
 
@@ -67,12 +67,12 @@ struct FSavedMap
 {
 	GENERATED_BODY()
 
-		UPROPERTY()
-		FString MapAssetName = FString();
+	UPROPERTY()
+	FString MapAssetName = FString();
 
 	//An fsaved map can be identified by its map asset name, and then it can contain an array of all of its saved actor data.
 	UPROPERTY()
-		TArray<FSavedActor> SavedActors;
+	TArray<FSavedActor> SavedActors;
 
 };
 
@@ -82,23 +82,23 @@ struct FSavedAbility
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "ClassDefaults")
-		TSubclassOf<UGameplayAbility> GameplayAbility;
+     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "ClassDefaults")
+     TSubclassOf<UGameplayAbility> GameplayAbility;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		FGameplayTag AbilityTag = FGameplayTag();
+	FGameplayTag AbilityTag = FGameplayTag();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		FGameplayTag AbilityStatus = FGameplayTag();
+	FGameplayTag AbilityStatus = FGameplayTag();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		FGameplayTag AbilitySlot = FGameplayTag();
+	FGameplayTag AbilitySlot = FGameplayTag();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		FGameplayTag AbilityType = FGameplayTag();
+	FGameplayTag AbilityType = FGameplayTag();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		int32 AbilityLevel = 1;
+	int32 AbilityLevel = 1;
 };
 
 inline bool operator==(const FSavedAbility& Left, const FSavedAbility& Right)

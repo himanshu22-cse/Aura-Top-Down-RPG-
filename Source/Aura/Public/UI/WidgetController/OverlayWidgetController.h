@@ -11,12 +11,12 @@ struct FUIWidgetRow : public FTableRowBase
 {
 	GENERATED_BODY()
 
-		//Now this row structure that we'll use in our data asset is going to obviously need a gameplay tag.  
-		UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		FGameplayTag MessageTag = FGameplayTag(); // this is going to be specifically for messages to display to the screen,we'll make sure these are all initialized, So I'll initialize it to an empty gameplay tag, So there's the tag.
+	//Now this row structure that we'll use in our data asset is going to obviously need a gameplay tag.  
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FGameplayTag MessageTag = FGameplayTag(); // this is going to be specifically for messages to display to the screen,we'll make sure these are all initialized, So I'll initialize it to an empty gameplay tag, So there's the tag.
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		FText Message = FText();  //And in the realm of widgets, when we display text to the user in the form of a widget, we use text that's user facing text that we show in widgets.
+	FText Message = FText();  //And in the realm of widgets, when we display text to the user in the form of a widget, we use text that's user facing text that we show in widgets.
 
 		/*
 			So for any given gameplay tag, there will be a widget that we can create and add to the viewport whenever
@@ -28,17 +28,17 @@ struct FUIWidgetRow : public FTableRowBase
 			to only use aura user widgets for this.
 			*/
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		TSubclassOf<class UAuraUserWidget> MessageWidget;
+	TSubclassOf<class UAuraUserWidget> MessageWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		UTexture2D* Image = nullptr;
+	UTexture2D* Image = nullptr;
 };
 
 class UAuraUserWidget;
 class UAbilityInfo;
 class UAuraAbilitySystemComponent;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAttributeChangedSignature, float, NewValue);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAttributeChangedSignature, float, NewValue);  // Dynamic means it can blueprints assignable and adding multicast means it can bind to other blueprints if not dynamic only multicast then it can bind to other function (only in c++).
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLevelChangedSignature, int32, NewLevel, bool, bLevelUp);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMessageWidgetRowSignature, FUIWidgetRow, Row);
 
@@ -81,30 +81,30 @@ public:
 	virtual void BindCallbacksToDependencies() override;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnAttributeChangedSignature OnHealthChanged;
+	FOnAttributeChangedSignature OnHealthChanged;   // "OnHealthChanged" is actual delegate and "FOnAttributeChangedSignature" is delegate signature.
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnAttributeChangedSignature OnMaxHealthChanged;
+	FOnAttributeChangedSignature OnMaxHealthChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnAttributeChangedSignature OnManaChanged;
+	FOnAttributeChangedSignature OnManaChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnAttributeChangedSignature OnMaxManaChanged;
+	FOnAttributeChangedSignature OnMaxManaChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Messages")
-		FMessageWidgetRowSignature MessageWidgetRowDelegate;
+	FMessageWidgetRowSignature MessageWidgetRowDelegate;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|XP")
-		FOnAttributeChangedSignature OnXPPercentChangedDelegate;
+	FOnAttributeChangedSignature OnXPPercentChangedDelegate;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Level")
-		FOnLevelChangedSignature OnPlayerLevelChangedDelegate;
+	FOnLevelChangedSignature OnPlayerLevelChangedDelegate;
 
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widget Data")
-		TObjectPtr<UDataTable> MessageWidgetDataTable;
+	TObjectPtr<UDataTable> MessageWidgetDataTable;
 
 	template<typename T>
 	T* GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag);

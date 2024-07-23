@@ -13,13 +13,14 @@ class AURA_API UAuraUserWidget : public UUserWidget
 public:
 
 	UFUNCTION(BlueprintCallable)
-		void SetWidgetController(UObject* InWidgetController);
+	void SetWidgetController(UObject* InWidgetController); // Function For Set Widget Controller amd also we can set the widget controller from blueprint also if we want.
 
 	UPROPERTY(BlueprintReadOnly)
-		TObjectPtr<UObject> WidgetController;
+	TObjectPtr<UObject> WidgetController;
 
 protected:
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void WidgetControllerSet();
+	void WidgetControllerSet();
+
 };

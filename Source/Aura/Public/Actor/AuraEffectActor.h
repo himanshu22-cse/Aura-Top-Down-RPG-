@@ -1,3 +1,5 @@
+// overlap with AuraEffectActor and apply some attribute change.
+
 #pragma once
 
 #include "CoreMinimal.h"

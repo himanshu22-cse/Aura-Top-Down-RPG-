@@ -19,13 +19,13 @@ class AURA_API AAuraGameModeBase : public AGameModeBase
 public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
-		TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
+	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Ability Info")
-		TObjectPtr<UAbilityInfo> AbilityInfo;
+	TObjectPtr<UAbilityInfo> AbilityInfo;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Loot Tiers")
-		TObjectPtr<ULootTiers> LootTiers;
+	TObjectPtr<ULootTiers> LootTiers;
 
 	void SaveSlotData(UMVVM_LoadSlot* LoadSlot, int32 SlotIndex);
 	ULoadScreenSaveGame* GetSaveSlotData(const FString& SlotName, int32 SlotIndex) const;
@@ -39,10 +39,10 @@ public:
 	void TravelToMap(UMVVM_LoadSlot* Slot);
 
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<USaveGame> LoadScreenSaveGameClass;
+	TSubclassOf<USaveGame> LoadScreenSaveGameClass;
 
 	UPROPERTY(EditDefaultsOnly)
-		FString DefaultMapName;
+	FString DefaultMapName;
 
 	/*
 	 we have to make sure that the default map, whatever it is, is in here.
@@ -64,10 +64,10 @@ public:
 	We'll add the default map here in code, just to make sure that it has the correct name and map association.
 	*/
 	UPROPERTY(EditDefaultsOnly)
-		TSoftObjectPtr<UWorld> DefaultMap;
+	TSoftObjectPtr<UWorld> DefaultMap;
 
 	UPROPERTY(EditDefaultsOnly)
-		FName DefaultPlayerStartTag;
+	FName DefaultPlayerStartTag;
 
 	/*
 	 so what are the maps themselves going to be?
@@ -87,7 +87,7 @@ public:
 	So we won't have all of our maps loaded in all at the same time.
 	*/
 	UPROPERTY(EditDefaultsOnly)
-		TMap<FString, TSoftObjectPtr<UWorld>> Maps;
+	TMap<FString, TSoftObjectPtr<UWorld>> Maps;
 
 	FString GetMapNameFromMapAssetName(const FString& MapAssetName) const; // Function For Loop Over Maps.
 

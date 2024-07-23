@@ -43,12 +43,12 @@ public:
 	/** end Combat Interface */
 
 	UPROPERTY(EditDefaultsOnly)
-		float DeathTime = 5.f;
+	float DeathTime = 5.f;
 
 	FTimerHandle DeathTimer;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		TObjectPtr<UNiagaraComponent> LevelUpNiagaraComponent;
+	TObjectPtr<UNiagaraComponent> LevelUpNiagaraComponent;
 
 	virtual void OnRep_Stunned() override;
 	virtual void OnRep_Burned() override;
@@ -58,13 +58,13 @@ public:
 private:
 
 	UPROPERTY(VisibleAnywhere)
-		TObjectPtr<UCameraComponent> TopDownCameraComponent;
+	TObjectPtr<UCameraComponent> TopDownCameraComponent;
 
 	UPROPERTY(VisibleAnywhere)
-		TObjectPtr<USpringArmComponent> CameraBoom;
+	TObjectPtr<USpringArmComponent> CameraBoom;
 
 	virtual void InitAbilityActorInfo() override;
 
 	UFUNCTION(NetMulticast, Reliable)
-		void MulticastLevelUpParticles() const;
+	void MulticastLevelUpParticles() const;
 };
