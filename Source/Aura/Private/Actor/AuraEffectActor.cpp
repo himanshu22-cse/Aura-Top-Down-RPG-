@@ -136,7 +136,7 @@ void AAuraEffectActor::OnEndOverlap(AActor* TargetActor)
 			if (TargetASC == HandlePair.Value)
 			{
 				TargetASC->RemoveActiveGameplayEffect(HandlePair.Key, 1);
-				HandlesToRemove.Add(HandlePair.Key); // Mark that handle to be removed from activegameplay effect from our map which we do after next fo
+				HandlesToRemove.Add(HandlePair.Key); // Mark that handle to be removed from activegameplay effect from our map which we do after 
 			}
 		}
 		for (FActiveGameplayEffectHandle& Handle : HandlesToRemove)

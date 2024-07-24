@@ -95,7 +95,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
 	EEffectApplicationPolicy DurationEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
-
+	  
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
 	TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
 
@@ -111,7 +111,8 @@ protected:
 	float ActorLevel = 1.f;
 
 private:
-
+	  
 	float RunningTime = 0.f;
 	void ItemMovement(float DeltaTime);
+
 };
