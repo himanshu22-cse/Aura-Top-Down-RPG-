@@ -19,17 +19,17 @@ struct FTaggedMontage
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-		UAnimMontage* Montage = nullptr;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UAnimMontage* Montage = nullptr;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-		FGameplayTag MontageTag;
+	FGameplayTag MontageTag;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-		FGameplayTag SocketTag;
+	FGameplayTag SocketTag;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-		USoundBase* ImpactSound = nullptr;
+	USoundBase* ImpactSound = nullptr;
 };
 
 // This class does not need to be modified.
@@ -48,56 +48,56 @@ class AURA_API ICombatInterface
 public:
 
 	UFUNCTION(BlueprintNativeEvent)
-		int32 GetPlayerLevel();
+	int32 GetPlayerLevel();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		FVector GetCombatSocketLocation(const FGameplayTag& MontageTag);
+	FVector GetCombatSocketLocation(const FGameplayTag& MontageTag);
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-		void UpdateFacingTarget(const FVector& Target); // Using this function to update the player position when attaking or throw a projectile when face any direction using motionwarping
+	void UpdateFacingTarget(const FVector& Target); // Using this function to update the player position when attaking or throw a projectile when face any direction using motionwarping
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		UAnimMontage* GetHitReactMontage();
+	UAnimMontage* GetHitReactMontage();
 
 	virtual void Die(const FVector& DeathImpulse) = 0;
 	virtual FOnDeathSignature& GetOnDeathDelegate() = 0;
 	virtual FOnDamageSignature& GetOnDamageSignature() = 0;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		bool IsDead() const;
+	bool IsDead() const;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		AActor* GetAvatar();
+	AActor* GetAvatar();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		TArray<FTaggedMontage> GetAttackMontages();
+	TArray<FTaggedMontage> GetAttackMontages();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		UNiagaraSystem* GetBloodEffect();
+	UNiagaraSystem* GetBloodEffect();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		FTaggedMontage GetTaggedMontageByTag(const FGameplayTag& MontageTag);
+	FTaggedMontage GetTaggedMontageByTag(const FGameplayTag& MontageTag);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		int32 GetMinionCount();
+	int32 GetMinionCount();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		void IncremenetMinionCount(int32 Amount);
+	void IncremenetMinionCount(int32 Amount);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		ECharacterClass GetCharacterClass();
+	ECharacterClass GetCharacterClass();
 
 	virtual FOnASCRegistered& GetOnASCRegisteredDelegate() = 0;
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-		void SetInShockLoop(bool bInLoop);
+	void SetInShockLoop(bool bInLoop);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		USkeletalMeshComponent* GetWeapon();
+	USkeletalMeshComponent* GetWeapon();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		bool IsBeingShocked() const;
+	bool IsBeingShocked() const;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		void SetIsBeingShocked(bool bInShock);
+	void SetIsBeingShocked(bool bInShock);
 };

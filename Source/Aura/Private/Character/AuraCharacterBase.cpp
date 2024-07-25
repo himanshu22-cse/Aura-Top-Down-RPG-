@@ -235,6 +235,8 @@ void AAuraCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> Gameplay
 {
 	check(IsValid(GetAbilitySystemComponent()));
 	check(GameplayEffectClass);
+
+//MakeEffectContext() is used to create an instance of a gameplay effect context. The context usually contains information about the source and target of the effect, among other things. This is particularly useful when you want to apply an effect and need to pass along data about who is applying the effect and to whom it is being applied.
 	FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
 
 	/*
@@ -258,8 +260,11 @@ void AAuraCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> Gameplay
 	*/
 
 	ContextHandle.AddSourceObject(this);
+
+	//MakeOutgoingSpec() is used to create a specification for a gameplay effect that is to be applied. This specification includes details like the level of the effect and any additional modifications.
 	const FGameplayEffectSpecHandle SpecHandle = GetAbilitySystemComponent()->MakeOutgoingSpec(GameplayEffectClass, Level, ContextHandle);
-	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*SpecHandle.Data.Get(), GetAbilitySystemComponent());
+	
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*SpecHandle.Data.Get(), GetAbilitySystemComponent()); // we call "Data" as "Data" stores the actual spec.
 }
 
 void AAuraCharacterBase::InitializeDefaultAttributes() const

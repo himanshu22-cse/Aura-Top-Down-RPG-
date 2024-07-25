@@ -478,7 +478,9 @@ void UAuraAbilitySystemComponent::ClientEffectApplied_Implementation(UAbilitySys
 	const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
 {
 	FGameplayTagContainer TagContainer;
-	EffectSpec.GetAllAssetTags(TagContainer);
+
+	//The asset tags is something that we could use to pass along some kind of tag that we'd want to know about once an effect is applied as we can't use granted tag as granted with duration based effects..
+	EffectSpec.GetAllAssetTags(TagContainer); 
 
 	EffectAssetTags.Broadcast(TagContainer);
 }

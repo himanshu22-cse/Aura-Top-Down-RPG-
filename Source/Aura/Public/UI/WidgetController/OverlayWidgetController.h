@@ -7,7 +7,7 @@
 struct FAuraAbilityInfo;
 
 USTRUCT(BlueprintType)
-struct FUIWidgetRow : public FTableRowBase
+struct FUIWidgetRow : public FTableRowBase // inherit from FTableRowBase struct and that's the base class for row structure for data tables.
 {
 	GENERATED_BODY()
 
@@ -18,7 +18,7 @@ struct FUIWidgetRow : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FText Message = FText();  //And in the realm of widgets, when we display text to the user in the form of a widget, we use text that's user facing text that we show in widgets.
 
-		/*
+	/*
 			So for any given gameplay tag, there will be a widget that we can create and add to the viewport whenever
 
 			we receive this tag in the form of a gameplay effect.
@@ -76,7 +76,7 @@ class AURA_API UOverlayWidgetController : public UAuraWidgetController
 	GENERATED_BODY()
 
 public:
-
+	 
 	virtual void BroadcastInitialValues() override;
 	virtual void BindCallbacksToDependencies() override;
 
@@ -107,7 +107,7 @@ protected:
 	TObjectPtr<UDataTable> MessageWidgetDataTable;
 
 	template<typename T>
-	T* GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag);
+	T* GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag); // template function to find data table and return the row ,no matter what the row type is.
 
 	void OnXPChanged(int32 NewXP);
 

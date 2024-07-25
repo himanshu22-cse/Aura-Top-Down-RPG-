@@ -86,25 +86,25 @@ public:
 	static void AssignSlotToAbility(FGameplayAbilitySpec& Spec, const FGameplayTag& Slot); // As we changing ability so not have const in FGameplayAbilitySpec,Function for remove it's input tag if one and then assign in a new slot.
 
 	UFUNCTION(NetMulticast, Unreliable)
-		void MulticastActivatePassiveEffect(const FGameplayTag& AbilityTag, bool bActivate);
+	void MulticastActivatePassiveEffect(const FGameplayTag& AbilityTag, bool bActivate);
 
 	FGameplayAbilitySpec* GetSpecFromAbilityTag(const FGameplayTag& AbilityTag);  // Function For return gameplayAbiliyspec means return which ability is present in the particular slot and can return gameplayability spec pointer as that way we can always check if the pointer is null,and if null there is no ability spec.
 
 	void UpgradeAttribute(const FGameplayTag& AttributeTag);
 
 	UFUNCTION(Server, Reliable)
-		void ServerUpgradeAttribute(const FGameplayTag& AttributeTag);
+	void ServerUpgradeAttribute(const FGameplayTag& AttributeTag);
 
 	void UpdateAbilityStatuses(int32 Level); // Function for check the level to give ability
 
 	UFUNCTION(Server, Reliable)
-		void ServerSpendSpellPoint(const FGameplayTag& AbilityTag);
+	void ServerSpendSpellPoint(const FGameplayTag& AbilityTag);
 
 	UFUNCTION(Server, Reliable)
-		void ServerEquipAbility(const FGameplayTag& AbilityTag, const FGameplayTag& Slot);
+	void ServerEquipAbility(const FGameplayTag& AbilityTag, const FGameplayTag& Slot);
 
 	UFUNCTION(Client, Reliable)
-		void ClientEquipAbility(const FGameplayTag& AbilityTag, const FGameplayTag& Status, const FGameplayTag& Slot, const FGameplayTag& PreviousSlot); // Send the gameplay tag,new status, new slot and the previous slot(so that we can clear if we need)
+	void ClientEquipAbility(const FGameplayTag& AbilityTag, const FGameplayTag& Status, const FGameplayTag& Slot, const FGameplayTag& PreviousSlot); // Send the gameplay tag,new status, new slot and the previous slot(so that we can clear if we need)
 
 	bool GetDescriptionsByAbilityTag(const FGameplayTag& AbilityTag, FString& OutDescription, FString& OutNextLevelDescription);
 
@@ -119,8 +119,8 @@ protected:
 	virtual void OnRep_ActivateAbilities() override;
 
 	UFUNCTION(Client, Reliable)
-		void ClientEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
+	void ClientEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
 
 	UFUNCTION(Client, Reliable)
-		void ClientUpdateAbilityStatus(const FGameplayTag& AbilityTag, const FGameplayTag& StatusTag, int32 AbilityLevel); //Update Ability Statues and broadcast to widget on server and client too
+	void ClientUpdateAbilityStatus(const FGameplayTag& AbilityTag, const FGameplayTag& StatusTag, int32 AbilityLevel); //Update Ability Statues and broadcast to widget on server and client too
 };

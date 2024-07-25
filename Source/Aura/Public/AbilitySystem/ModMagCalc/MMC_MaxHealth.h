@@ -4,7 +4,6 @@
 #include "GameplayModMagnitudeCalculation.h"
 #include "MMC_MaxHealth.generated.h"
 
-
 UCLASS()
 class AURA_API UMMC_MaxHealth : public UGameplayModMagnitudeCalculation
 {

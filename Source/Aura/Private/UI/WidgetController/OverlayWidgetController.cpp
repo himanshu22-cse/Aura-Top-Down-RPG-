@@ -52,7 +52,12 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 
 	 And add lambda lets us define right here in the parentheses whatever functionality we want.
 
+	 If we want to access a member variable from something, then that thing, that class that has the member
+
+     variable must be captured within the lambda (looks like ->("[]") ).
+
 	*/
+
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(GetAuraAS()->GetManaAttribute()).AddLambda(
 		[this](const FOnAttributeChangeData& Data)
