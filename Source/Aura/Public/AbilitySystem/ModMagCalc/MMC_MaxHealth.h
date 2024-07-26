@@ -34,11 +34,7 @@ private:
 
    So we're going to make a private section for that.
 
-   And the variable type has to be and get ready because this is a long type.
-
-   It's FGame play effect, attribute capture definition.
-
-  I'm going to go ahead and let Autocomplete fill that out.
+   It's FGameplay effect, attribute capture definition.
 
   Now, this is a gameplay effect attribute capture definition.
 

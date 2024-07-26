@@ -14,7 +14,8 @@ UAuraAssetManager& UAuraAssetManager::Get()
 void UAuraAssetManager::StartInitialLoading()
 {
 	Super::StartInitialLoading();
-	FAuraGameplayTags::InitializeNativeGameplayTags();
+
+	FAuraGameplayTags::InitializeNativeGameplayTags(); // It's going to get the gameplay Tag Manager and call native effect gameplay tag.
 
 	// This is required to use Target Data!
 	UAbilitySystemGlobals::Get().InitGlobalData();

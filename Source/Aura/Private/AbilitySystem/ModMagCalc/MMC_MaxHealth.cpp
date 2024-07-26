@@ -6,6 +6,7 @@
 UMMC_MaxHealth::UMMC_MaxHealth()
 {
 	VigorDef.AttributeToCapture = UAuraAttributeSet::GetVigorAttribute();
+	// if we capture we have to define whether it is capturing tatget or source.
 	VigorDef.AttributeSource = EGameplayEffectAttributeCaptureSource::Target;
 	VigorDef.bSnapshot = false;
 
@@ -15,16 +16,17 @@ UMMC_MaxHealth::UMMC_MaxHealth()
 float UMMC_MaxHealth::CalculateBaseMagnitude_Implementation(const FGameplayEffectSpec& Spec) const
 {
 	// Gather tags from source and target
-	const FGameplayTagContainer* SourceTags = Spec.CapturedSourceTags.GetAggregatedTags();
+	const FGameplayTagContainer* SourceTags = Spec.CapturedSourceTags.GetAggregatedTags(); 
 	const FGameplayTagContainer* TargetTags = Spec.CapturedTargetTags.GetAggregatedTags();
 
+//Now, in order to capture an attribute and get that attributes magnitude its value, we have to create something called an Faggregator, evaluate parameters
 	FAggregatorEvaluateParameters EvaluationParameters;
 	EvaluationParameters.SourceTags = SourceTags;
 	EvaluationParameters.TargetTags = TargetTags;
 
 	float Vigor = 0.f;
 	GetCapturedAttributeMagnitude(VigorDef, Spec, EvaluationParameters, Vigor);
-	Vigor = FMath::Max<float>(Vigor, 0.f);
+	Vigor = FMath::Max<float>(Vigor, 0.f);  // Using max will never get a -ve value and returns the maximum.
 
 	int32 PlayerLevel = 1;
 	if (Spec.GetContext().GetSourceObject()->Implements<UCombatInterface>())
