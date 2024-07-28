@@ -11,6 +11,7 @@ void UAttributeMenuWidgetController::BindCallbacksToDependencies()
 	check(AttributeInfo);
 	for (auto& Pair : GetAuraAS()->TagsToAttributes)
 	{
+//GetGameplayAttributeValueChangeDelegate() is a method in Unreal Engine’s Gameplay Ability System (GAS) that allows you to retrieve a delegate which is invoked when a gameplay attribute's value changes. This is useful for reacting to changes in attributes, such as health or mana, in a gameplay mechanic.
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(Pair.Value()).AddLambda(
 			[this, Pair](const FOnAttributeChangeData& Data)
 			{

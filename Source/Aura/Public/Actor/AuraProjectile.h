@@ -19,45 +19,45 @@ public:
 	AAuraProjectile();
 
 	UPROPERTY(VisibleAnywhere)
-		TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
+	TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
 
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn = true))
-		FDamageEffectParams DamageEffectParams;
+	FDamageEffectParams DamageEffectParams;
 
 	UPROPERTY()
-		TObjectPtr<USceneComponent> HomingTargetSceneComponent;
+	TObjectPtr<USceneComponent> HomingTargetSceneComponent;
 
 protected:
 
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable)
-		virtual void OnHit();
+	virtual void OnHit();
 	virtual void Destroyed() override;
 
 	UFUNCTION()
-		virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		TObjectPtr<USphereComponent> Sphere;
+	TObjectPtr<USphereComponent> Sphere;
 
 	bool IsValidOverlap(AActor* OtherActor);
 	bool bHit = false;
 
 	UPROPERTY()
-		TObjectPtr<UAudioComponent> LoopingSoundComponent;
+	TObjectPtr<UAudioComponent> LoopingSoundComponent;
 
 private:
 
 	UPROPERTY(EditDefaultsOnly)
-		float LifeSpan = 15.f;
+	float LifeSpan = 15.f;
 
 	UPROPERTY(EditAnywhere)
-		TObjectPtr<UNiagaraSystem> ImpactEffect;
+	TObjectPtr<UNiagaraSystem> ImpactEffect;
 
 	UPROPERTY(EditAnywhere)
-		TObjectPtr<USoundBase> ImpactSound;
+	TObjectPtr<USoundBase> ImpactSound;
 
 	UPROPERTY(EditAnywhere)
-		TObjectPtr<USoundBase> LoopingSound;
+	TObjectPtr<USoundBase> LoopingSound;
 };

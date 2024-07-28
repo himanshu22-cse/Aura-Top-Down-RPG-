@@ -10,11 +10,11 @@ struct FAuraInputAction
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditDefaultsOnly)
-		const class UInputAction* InputAction = nullptr;
+	UPROPERTY(EditDefaultsOnly)
+	const class UInputAction* InputAction = nullptr;
 
 	UPROPERTY(EditDefaultsOnly)
-		FGameplayTag InputTag = FGameplayTag();
+	FGameplayTag InputTag = FGameplayTag();
 };
 
 UCLASS()
@@ -28,5 +28,7 @@ public:
 
 	// Array for storing input for abilities
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-		TArray<FAuraInputAction> AbilityInputActions;
+	TArray<FAuraInputAction> AbilityInputActions;
+
 };
+ 

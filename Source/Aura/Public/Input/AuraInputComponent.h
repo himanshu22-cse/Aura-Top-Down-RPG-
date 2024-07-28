@@ -25,6 +25,17 @@ void UAuraInputComponent::BindAbilityActions(const UAuraInputConfig* InputConfig
 	{
 		if (Action.InputAction && Action.InputTag.IsValid())
 		{
+
+/*
+Bind action can take a variable number of arguments and if we pass in more than this then those arguments
+
+will be passed along to our held function(or Pressed or Released)  and our held function.
+
+If we make one that can take a gameplay tag, it'll receive that tag and we're going to pass along "Action.InputTag"
+
+So any input tag associated with a given action is going to be passed along into its callback.
+
+*/
 			if (PressedFunc)
 			{
 				BindAction(Action.InputAction, ETriggerEvent::Started, Object, PressedFunc, Action.InputTag);

@@ -47,9 +47,11 @@ struct FEffectProperties
 
 // typedef is specific to the FGameplayAttribute() signature, but TStaticFunPtr is generic to any signature chosen
 //typedef TBaseStaticDelegateInstance<FGameplayAttribute(), FDefaultDelegateUserPolicy>::FFuncPtr FAttributeFuncPtr;
+//TBaseStaticDelegateInstance used for delegating function calls in Unreal Engine, particularly for static functions (functions not associated with any object instance).
+//FDefaultDelegateUserPolicy This is a policy class used by the TBaseStaticDelegateInstance class to define how the delegate behaves and interacts with users. In this case, it represents the default behavior for delegates.
+//FFuncPtr This is a type defined within TBaseStaticDelegateInstance that represents a function pointer. It is the type used to store and call the static function associated with the delegate.
 template<class T>
 using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T, FDefaultDelegateUserPolicy>::FFuncPtr;
-
 
 UCLASS()
 class AURA_API UAuraAttributeSet : public UAttributeSet
@@ -162,7 +164,6 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Mana, Category = "Vital Attributes")
 	FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Mana);
-
 
 	/*
 	 * Meta Attributes

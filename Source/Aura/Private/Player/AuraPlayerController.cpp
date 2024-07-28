@@ -112,7 +112,7 @@ void AAuraPlayerController::CursorTrace()
 		UnHighlightActor(ThisActor);
 		if (IsValid(ThisActor) && ThisActor->Implements<UHighlightInterface>())
 
-			LastActor = nullptr;
+		LastActor = nullptr;
 		ThisActor = nullptr;
 		return;
 	}
@@ -185,9 +185,9 @@ void AAuraPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 			{
 				UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ClickNiagaraSystem, CachedDestination);
 			}
-			if (UNavigationPath* NavPath = UNavigationSystemV1::FindPathToLocationSynchronously(this, ControlledPawn->GetActorLocation(), CachedDestination))
+			if (UNavigationPath* NavPath = UNavigationSystemV1::FindPathToLocationSynchronously(this, ControlledPawn->GetActorLocation(), CachedDestination)) // we want to create a navigation path ,a set of points to follow.
 			{
-				Spline->ClearSplinePoints();
+				Spline->ClearSplinePoints(); // Each time we set spline points we want to clear spline points out that were there before .
 				for (const FVector& PointLoc : NavPath->PathPoints)
 				{
 					Spline->AddSplinePoint(PointLoc, ESplineCoordinateSpace::World);

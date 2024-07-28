@@ -5,7 +5,6 @@
 #include "GameplayTagContainer.h"
 #include "AuraPlayerController.generated.h"
 
-
 class IHighlightInterface;
 class UNiagaraSystem;
 class UDamageTextComponent;
@@ -43,7 +42,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void HideMagicCircle();
-
 
 protected:
 
@@ -86,14 +84,19 @@ private:
 
 	UAuraAbilitySystemComponent* GetASC();
 
-	FVector CachedDestination = FVector::ZeroVector;
-	float FollowTime = 0.f;
-	float ShortPressThreshold = 0.5f;
-	bool bAutoRunning = false;
-	ETargetingStatus TargetingStatus = ETargetingStatus::NotTargeting;
+	FVector CachedDestination = FVector::ZeroVector;  //if we click on a particular location, we're going to want to cache that destination.
 
+	float FollowTime = 0.f; // I'd also like to keep track of how long we've pressed the mouse button before we release
+
+	float ShortPressThreshold = 0.5f; // How long do we hold our mouse cursor down before releasing it ? And how much time until we no longer consider that to be a short press ?
+
+	bool bAutoRunning = false; //  I'm going to create a Boolean called Be Auto Running and initialize it to False , And that way we can call add movement input every single frame As long as this boolean is true, as long as we should be auto running
+
+//And as long as we're auto running, we're going to be getting closer and closer to our destination, at which point we should stop auto running. How close we get to that destination should be a parameter we can change.		
 	UPROPERTY(EditDefaultsOnly)
-	float AutoRunAcceptanceRadius = 50.f;
+	float AutoRunAcceptanceRadius = 50.f;  
+
+	ETargetingStatus TargetingStatus = ETargetingStatus::NotTargeting;
 
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USplineComponent> Spline;

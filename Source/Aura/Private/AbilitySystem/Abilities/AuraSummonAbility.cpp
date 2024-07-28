@@ -7,7 +7,6 @@ TArray<FVector> UAuraSummonAbility::GetSpawnLocations()
 	const FVector Location = GetAvatarActorFromActorInfo()->GetActorLocation();
 	const float DeltaSpread = SpawnSpread / NumMinions;  // Angle b/w each of vector to spawn mininons
 
-
 	const FVector LeftOfSpread = Forward.RotateAngleAxis(-SpawnSpread / 2.f, FVector::UpVector);
 	TArray<FVector> SpawnLocations;
 
