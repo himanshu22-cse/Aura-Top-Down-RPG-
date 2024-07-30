@@ -31,14 +31,14 @@ void UTargetDataUnderMouse::Activate()
 
 void UTargetDataUnderMouse::SendMouseCursorData()
 {
-	FScopedPredictionWindow ScopedPrediction(AbilitySystemComponent.Get());
+	FScopedPredictionWindow ScopedPrediction(AbilitySystemComponent.Get());  // Everything in the scope should be predicted.
 
 	APlayerController* PC = Ability->GetCurrentActorInfo()->PlayerController.Get();
 	FHitResult CursorHit;
 	PC->GetHitResultUnderCursor(ECC_Target, false, CursorHit);
 
-	FGameplayAbilityTargetDataHandle DataHandle;
-	FGameplayAbilityTargetData_SingleTargetHit* Data = new FGameplayAbilityTargetData_SingleTargetHit();
+	FGameplayAbilityTargetDataHandle DataHandle;  // "FGameplayAbilityTargetDataHandle"-> handle targeting data.
+	FGameplayAbilityTargetData_SingleTargetHit* Data = new FGameplayAbilityTargetData_SingleTargetHit(); // "FGameplayAbilityTargetData_SingleTargetHit"represents the data related to a single hit result.
 	Data->HitResult = CursorHit;
 	DataHandle.Add(Data);
 
@@ -47,9 +47,9 @@ void UTargetDataUnderMouse::SendMouseCursorData()
 		GetActivationPredictionKey(),
 		DataHandle,
 		FGameplayTag(),
-		AbilitySystemComponent->ScopedPredictionKey);
+		AbilitySystemComponent->ScopedPredictionKey); // managing and synchronizing actions between clients and the server
 
-	if (ShouldBroadcastAbilityTaskDelegates())
+	if (ShouldBroadcastAbilityTaskDelegates()) // whether the delegates (or events) associated with ability tasks should be broadcast
 	{
 		ValidData.Broadcast(DataHandle);
 	}
@@ -57,6 +57,8 @@ void UTargetDataUnderMouse::SendMouseCursorData()
 
 void UTargetDataUnderMouse::OnTargetDataReplicatedCallback(const FGameplayAbilityTargetDataHandle& DataHandle, FGameplayTag ActivationTag)
 {
+
+//consume is going to tell the ASC we've received the data, don't worry about it anymore, just clear ,it from your cache for this specific ability, specand prediction key
 	AbilitySystemComponent->ConsumeClientReplicatedTargetData(GetAbilitySpecHandle(), GetActivationPredictionKey());
 	if (ShouldBroadcastAbilityTaskDelegates())
 	{

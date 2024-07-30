@@ -35,21 +35,21 @@ public:
 	/** end Combat Interface */
 
 	UPROPERTY(BlueprintReadWrite, Category = "Combat")
-		TObjectPtr<AActor> CombatTarget;
+	TObjectPtr<AActor> CombatTarget;
 
 	UPROPERTY(BlueprintAssignable)
-		FOnAttributeChangedSignature OnHealthChanged;
+	FOnAttributeChangedSignature OnHealthChanged;
 
 	UPROPERTY(BlueprintAssignable)
-		FOnAttributeChangedSignature OnMaxHealthChanged;
+	FOnAttributeChangedSignature OnMaxHealthChanged;
 
 	void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 
 	UPROPERTY(BlueprintReadOnly, Category = "Combat")
-		bool bHitReacting = false;
+	bool bHitReacting = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
-		float LifeSpan = 5.f;
+	float LifeSpan = 5.f;
 
 	void SetLevel(int32 InLevel) { Level = InLevel; }
 
@@ -61,17 +61,17 @@ protected:
 	virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
-		int32 Level = 1;
+	int32 Level = 1;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		TObjectPtr<UWidgetComponent> HealthBar;
+	TObjectPtr<UWidgetComponent> HealthBar;
 
 	UPROPERTY(EditAnywhere, Category = "AI")
-		TObjectPtr<UBehaviorTree> BehaviorTree;
+	TObjectPtr<UBehaviorTree> BehaviorTree;
 
 	UPROPERTY()
-		TObjectPtr<AAuraAIController> AuraAIController;
+	TObjectPtr<AAuraAIController> AuraAIController;
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void SpawnLoot();
+	void SpawnLoot();
 };

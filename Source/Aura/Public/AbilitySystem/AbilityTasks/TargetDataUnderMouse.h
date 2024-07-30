@@ -1,10 +1,11 @@
+// Class for data related to that hit results under the mouse cursor.
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Abilities/Tasks/AbilityTask.h"
 #include "TargetDataUnderMouse.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMouseTargetDataSignature, const FGameplayAbilityTargetDataHandle&, DataHandle);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMouseTargetDataSignature, const FGameplayAbilityTargetDataHandle&, DataHandle); // We use data handle so that we can broadcast whole data then we can get the Hit result and anything else that the target data has.
 
 UCLASS()
 class AURA_API UTargetDataUnderMouse : public UAbilityTask
@@ -14,10 +15,10 @@ class AURA_API UTargetDataUnderMouse : public UAbilityTask
 public:
 
 	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks", meta = (DisplayName = "TargetDataUnderMouse", HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "true"))
-		static UTargetDataUnderMouse* CreateTargetDataUnderMouse(UGameplayAbility* OwningAbility);
+	static UTargetDataUnderMouse* CreateTargetDataUnderMouse(UGameplayAbility* OwningAbility);
 
 	UPROPERTY(BlueprintAssignable)
-		FMouseTargetDataSignature ValidData;
+	FMouseTargetDataSignature ValidData;
 
 private:
 

@@ -100,7 +100,6 @@ void AAuraEnemy::BeginPlay()
 		UAuraAbilitySystemLibrary::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
 	}
 
-
 	if (UAuraUserWidget* AuraUserWidget = Cast<UAuraUserWidget>(HealthBar->GetUserWidgetObject()))
 	{
 		AuraUserWidget->SetWidgetController(this);
@@ -148,7 +147,6 @@ void AAuraEnemy::InitAbilityActorInfo()
 	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
 	AbilitySystemComponent->RegisterGameplayTagEvent(FAuraGameplayTags::Get().Debuff_Stun, EGameplayTagEventType::NewOrRemoved).AddUObject(this, &AAuraEnemy::StunTagChanged);
 
-
 	if (HasAuthority())
 	{
 		InitializeDefaultAttributes();
@@ -164,7 +162,7 @@ void AAuraEnemy::InitializeDefaultAttributes() const
 void AAuraEnemy::StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
 {
 	Super::StunTagChanged(CallbackTag, NewCount);
-
+	 
 	if (AuraAIController && AuraAIController->GetBlackboardComponent())
 	{
 		AuraAIController->GetBlackboardComponent()->SetValueAsBool(FName("Stunned"), bIsStunned);

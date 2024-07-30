@@ -13,13 +13,13 @@ class AURA_API AAuraFireBall : public AAuraProjectile
 public:
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void StartOutgoingTimeline();
+	void StartOutgoingTimeline();
 
 	UPROPERTY(BlueprintReadOnly)
-		TObjectPtr<AActor> ReturnToActor;
+	TObjectPtr<AActor> ReturnToActor;
 
 	UPROPERTY(BlueprintReadWrite)
-		FDamageEffectParams ExplosionDamageParams;
+	FDamageEffectParams ExplosionDamageParams;
 
 protected:
 
