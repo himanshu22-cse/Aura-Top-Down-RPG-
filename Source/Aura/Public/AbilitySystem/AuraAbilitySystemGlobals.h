@@ -9,5 +9,6 @@ UCLASS()
 class AURA_API UAuraAbilitySystemGlobals : public UAbilitySystemGlobals
 {
 	GENERATED_BODY()
-		virtual FGameplayEffectContext* AllocGameplayEffectContext() const override;
+
+   virtual FGameplayEffectContext* AllocGameplayEffectContext() const override;
 };

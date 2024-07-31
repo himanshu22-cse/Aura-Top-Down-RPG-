@@ -10,67 +10,67 @@ struct FDamageEffectParams
 {
 	GENERATED_BODY()
 
-		FDamageEffectParams() {}
+	FDamageEffectParams() {}
 
 	UPROPERTY(BlueprintReadWrite)
-		TObjectPtr<UObject> WorldContextObject = nullptr;
+	TObjectPtr<UObject> WorldContextObject = nullptr;
 
 	UPROPERTY(BlueprintReadWrite)
-		TSubclassOf<UGameplayEffect> DamageGameplayEffectClass = nullptr;
+	TSubclassOf<UGameplayEffect> DamageGameplayEffectClass = nullptr;
 
 	UPROPERTY(BlueprintReadWrite)
-		TObjectPtr<UAbilitySystemComponent> SourceAbilitySystemComponent;
+	TObjectPtr<UAbilitySystemComponent> SourceAbilitySystemComponent;
 
 	UPROPERTY(BlueprintReadWrite)
-		TObjectPtr<UAbilitySystemComponent> TargetAbilitySystemComponent;
+	TObjectPtr<UAbilitySystemComponent> TargetAbilitySystemComponent;
 
 	UPROPERTY(BlueprintReadWrite)
-		float BaseDamage = 0.f; // How much damage to cause
+	float BaseDamage = 0.f; // How much damage to cause
 
 	UPROPERTY(BlueprintReadWrite)
-		float AbilityLevel = 1.f;
+	float AbilityLevel = 1.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		FGameplayTag DamageType = FGameplayTag(); // What type of damage is causing (firebolt,electric,etc)
+	FGameplayTag DamageType = FGameplayTag(); // What type of damage is causing (firebolt,electric,etc)
 
 	UPROPERTY(BlueprintReadWrite)
-		float DebuffChance = 0.f;
+	float DebuffChance = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		float DebuffDamage = 0.f;
+	float DebuffDamage = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		float DebuffDuration = 0.f;
+	float DebuffDuration = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		float DebuffFrequency = 0.f;
+	float DebuffFrequency = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		float DeathImpulseMagnitude = 0.f;
+	float DeathImpulseMagnitude = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		FVector DeathImpulse = FVector::ZeroVector;
+	FVector DeathImpulse = FVector::ZeroVector;
 
 	UPROPERTY(BlueprintReadWrite)
-		float KnockbackForceMagnitude = 0.f;
+	float KnockbackForceMagnitude = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		float KnockbackChance = 0.f;
+	float KnockbackChance = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		FVector KnockbackForce = FVector::ZeroVector;
+	FVector KnockbackForce = FVector::ZeroVector;
 
 	UPROPERTY(BlueprintReadWrite)
-		bool bIsRadialDamage = false;
+	bool bIsRadialDamage = false;
 
 	UPROPERTY(BlueprintReadWrite)
-		float RadialDamageInnerRadius = 0.f;
+	float RadialDamageInnerRadius = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		float RadialDamageOuterRadius = 0.f;
+	float RadialDamageOuterRadius = 0.f;
 
 	UPROPERTY(BlueprintReadWrite)
-		FVector RadialDamageOrigin = FVector::ZeroVector;
+	FVector RadialDamageOrigin = FVector::ZeroVector;
 
 };
 
@@ -134,42 +134,42 @@ public:
 protected:
 
 	UPROPERTY()
-		bool bIsBlockedHit = false;
+	bool bIsBlockedHit = false;
 
 	UPROPERTY()
-		bool bIsCriticalHit = false;
+	bool bIsCriticalHit = false;
 
 	UPROPERTY()
-		bool bIsSuccessfulDebuff = false;
+	bool bIsSuccessfulDebuff = false;
 
 	UPROPERTY()
-		float DebuffDamage = 0.f;
+	float DebuffDamage = 0.f;
 
 	UPROPERTY()
-		float DebuffDuration = 0.f;
+	float DebuffDuration = 0.f;
 
 	UPROPERTY()
-		float DebuffFrequency = 0.f;
+	float DebuffFrequency = 0.f;
 
 	TSharedPtr<FGameplayTag> DamageType;
 
 	UPROPERTY()
-		FVector DeathImpulse = FVector::ZeroVector;
+	FVector DeathImpulse = FVector::ZeroVector;
 
 	UPROPERTY()
-		FVector KnockbackForce = FVector::ZeroVector;
+	FVector KnockbackForce = FVector::ZeroVector;
 
 	UPROPERTY()
-		bool bIsRadialDamage = false;
+	bool bIsRadialDamage = false;
 
 	UPROPERTY()
-		float RadialDamageInnerRadius = 0.f;
+	float RadialDamageInnerRadius = 0.f;
 
 	UPROPERTY()
-		float RadialDamageOuterRadius = 0.f;
+	float RadialDamageOuterRadius = 0.f;
 
 	UPROPERTY()
-		FVector RadialDamageOrigin = FVector::ZeroVector;
+	FVector RadialDamageOrigin = FVector::ZeroVector;
 };
 
 /*
@@ -177,6 +177,9 @@ Well, these t struct ops type traits defines what can be done with this particul
 
 effect context.
 */
+
+//The TStructOpsTypeTraits structure is used to define traits and behaviors for a particular struct, enabling custom serialization, copying, and other operations.
+
 template<>
 struct TStructOpsTypeTraits<FAuraGameplayEffectContext> : public TStructOpsTypeTraitsBase2<FAuraGameplayEffectContext>
 {
