@@ -17,6 +17,8 @@ TArray<FVector> UAuraSummonAbility::GetSpawnLocations()
 		FVector ChosenSpawnLocation = Location + Direction * FMath::FRandRange(MinSpawnDistance, MaxSpawnDistance); // for random place spawn of enemy
 
 		FHitResult Hit;
+		
+		// SpawnPoint Location Exactly on the ground (as summon can spawn on ground or stairs)
 		GetWorld()->LineTraceSingleByChannel(Hit, ChosenSpawnLocation + FVector(0.f, 0.f, 400.f), ChosenSpawnLocation - FVector(0.f, 0.f, 400.f), ECC_Visibility);
 		if (Hit.bBlockingHit)
 		{
