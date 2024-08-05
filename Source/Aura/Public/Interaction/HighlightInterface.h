@@ -20,11 +20,11 @@ class AURA_API IHighlightInterface
 public:
 
 	UFUNCTION(BlueprintNativeEvent)
-		void HighlightActor();
+	void HighlightActor();
 
 	UFUNCTION(BlueprintNativeEvent)
-		void UnHighlightActor();
+	void UnHighlightActor();
 
 	UFUNCTION(BlueprintNativeEvent)
-		void SetMoveToLocation(FVector& OutDestination);
+	void SetMoveToLocation(FVector& OutDestination);
 };

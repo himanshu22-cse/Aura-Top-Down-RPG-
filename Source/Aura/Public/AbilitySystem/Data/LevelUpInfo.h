@@ -9,14 +9,14 @@ struct FAuraLevelUpInfo
 {
 	GENERATED_BODY()
 
-		UPROPERTY(EditDefaultsOnly)
-		int32 LevelUpRequirement = 0;
+	UPROPERTY(EditDefaultsOnly)
+	int32 LevelUpRequirement = 0;
 
 	UPROPERTY(EditDefaultsOnly)
-		int32 AttributePointAward = 1;
+	int32 AttributePointAward = 1;
 
 	UPROPERTY(EditDefaultsOnly)
-		int32 SpellPointAward = 1;
+	int32 SpellPointAward = 1;
 };
 
 
@@ -28,7 +28,7 @@ class AURA_API ULevelUpInfo : public UDataAsset
 public:
 
 	UPROPERTY(EditDefaultsOnly)
-		TArray<FAuraLevelUpInfo> LevelUpInformation;
+	TArray<FAuraLevelUpInfo> LevelUpInformation;
 
 	int32 FindLevelForXP(int32 XP) const;
 };

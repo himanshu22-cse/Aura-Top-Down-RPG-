@@ -32,7 +32,7 @@ void UWaitCooldownChange::EndTask()
 	if (!IsValid(ASC)) return;
 	ASC->RegisterGameplayTagEvent(CooldownTag, EGameplayTagEventType::NewOrRemoved).RemoveAll(this);
 
-	SetReadyToDestroy();
+	SetReadyToDestroy(); 
 	MarkAsGarbage();
 }
 
@@ -55,6 +55,8 @@ void UWaitCooldownChange::OnActiveEffectAdded(UAbilitySystemComponent* TargetASC
 	if (AssetTags.HasTagExact(CooldownTag) || GrantedTags.HasTagExact(CooldownTag))
 	{
 		FGameplayEffectQuery GameplayEffectQuery = FGameplayEffectQuery::MakeQuery_MatchAnyOwningTags(CooldownTag.GetSingleTagContainer());
+
+// "GetActiveEffectsTimeRemaining" return TArray of floats because this function will return the time remaining for all gameplay effects that have any of the owning tag ,so we could have a multiple active gameplay effects going on the same time.
 		TArray<float> TimesRemaining = ASC->GetActiveEffectsTimeRemaining(GameplayEffectQuery);
 		if (TimesRemaining.Num() > 0)
 		{

@@ -8,8 +8,8 @@
 
 class UAbilitySystemComponent;
 struct FGameplayEffectSpec;
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCooldownChangeSignature, float, TimeRemaining);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCooldownChangeSignature, float, TimeRemaining);
 
 UCLASS(BlueprintType, meta = (ExposedAsyncProxy = "AsyncTask"))
 class AURA_API UWaitCooldownChange : public UBlueprintAsyncActionBase
@@ -19,21 +19,21 @@ class AURA_API UWaitCooldownChange : public UBlueprintAsyncActionBase
 public:
 
 	UPROPERTY(BlueprintAssignable)
-		FCooldownChangeSignature CooldownStart;
+	FCooldownChangeSignature CooldownStart;
 
 	UPROPERTY(BlueprintAssignable)
-		FCooldownChangeSignature CooldownEnd;
+	FCooldownChangeSignature CooldownEnd;
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-		static UWaitCooldownChange* WaitForCooldownChange(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayTag& InCooldownTag);
+	static UWaitCooldownChange* WaitForCooldownChange(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayTag& InCooldownTag);
 
 	UFUNCTION(BlueprintCallable)
-		void EndTask();
+	void EndTask();
 
 protected:
 
 	UPROPERTY()
-		TObjectPtr<UAbilitySystemComponent> ASC;
+	TObjectPtr<UAbilitySystemComponent> ASC;
 
 	FGameplayTag CooldownTag;
 

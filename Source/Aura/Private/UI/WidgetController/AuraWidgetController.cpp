@@ -41,7 +41,7 @@ void UAuraWidgetController::BroadcastAbilityInfo()
 	GetAuraASC()->ForEachAbility(BroadcastDelegate);  // As we call this lamda for each abilities 
 }
 
-AAuraPlayerController* UAuraWidgetController::GetAuraPC()
+AAuraPlayerController* UAuraWidgetController::GetAuraPC() 
 {
 	if (AuraPlayerController == nullptr)
 	{
