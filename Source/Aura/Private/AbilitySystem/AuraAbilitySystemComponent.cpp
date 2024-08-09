@@ -310,7 +310,7 @@ void UAuraAbilitySystemComponent::UpdateAbilityStatuses(int32 Level)
 	{
 		if (!Info.AbilityTag.IsValid()) continue;
 		if (Level < Info.LevelRequirement) continue;
-		if (GetSpecFromAbilityTag(Info.AbilityTag) == nullptr)
+		if (GetSpecFromAbilityTag(Info.AbilityTag) == nullptr)  // if not having ability we give ability.
 		{
 			FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(Info.Ability, 1);
 			AbilitySpec.DynamicAbilityTags.AddTag(FAuraGameplayTags::Get().Abilities_Status_Eligible);

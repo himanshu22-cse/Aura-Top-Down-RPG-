@@ -29,31 +29,31 @@ public:
 	virtual void BindCallbacksToDependencies() override;
 
 	UPROPERTY(BlueprintAssignable)
-		FOnPlayerStatChangedSignature SpellPointsChanged;
+	FOnPlayerStatChangedSignature SpellPointsChanged;
 
 	UPROPERTY(BlueprintAssignable)
-		FSpellGlobeSelectedSignature SpellGlobeSelectedDelegate;
+	FSpellGlobeSelectedSignature SpellGlobeSelectedDelegate;
 
 	UPROPERTY(BlueprintAssignable)
-		FWaitForEquipSelectionSignature WaitForEquipDelegate;
+	FWaitForEquipSelectionSignature WaitForEquipDelegate;
 
 	UPROPERTY(BlueprintAssignable)
-		FWaitForEquipSelectionSignature StopWaitingForEquipDelegate;
+	FWaitForEquipSelectionSignature StopWaitingForEquipDelegate;
 
 	UPROPERTY(BlueprintAssignable)
-		FSpellGlobeReassignedSignature SpellGlobeReassignedDelegate;
+	FSpellGlobeReassignedSignature SpellGlobeReassignedDelegate;
 
 	UFUNCTION(BlueprintCallable)
-		void SpellGlobeSelected(const FGameplayTag& AbilityTag);
+	void SpellGlobeSelected(const FGameplayTag& AbilityTag);
 
 	UFUNCTION(BlueprintCallable)
-		void SpendPointButtonPressed();
+	void SpendPointButtonPressed();
 
 	UFUNCTION(BlueprintCallable)
-		void GlobeDeselect();
+	void GlobeDeselect();
 
 	UFUNCTION(BlueprintCallable)
-		void EquipButtonPressed();
+	void EquipButtonPressed();
 
 	/*
 when we click the equip button, we're saving the selected slot or the input tag of our
@@ -76,7 +76,7 @@ So let's make a blueprint callable function for that.
 */
 
 	UFUNCTION(BlueprintCallable)
-		void SpellRowGlobePressed(const FGameplayTag& SlotTag, const FGameplayTag& AbilityType); // As we argument 2 tags one is in which slot(offensive or passive) and what type of ability tag is. 
+	void SpellRowGlobePressed(const FGameplayTag& SlotTag, const FGameplayTag& AbilityType); // As we argument 2 tags one is in which slot(offensive or passive) and what type of ability tag is. 
 
 	void OnAbilityEquipped(const FGameplayTag& AbilityTag, const FGameplayTag& Status, const FGameplayTag& Slot, const FGameplayTag& PreviousSlot);
 

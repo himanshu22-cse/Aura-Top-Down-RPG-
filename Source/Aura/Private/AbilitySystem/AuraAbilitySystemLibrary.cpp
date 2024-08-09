@@ -11,6 +11,7 @@
 #include "UI/HUD/AuraHUD.h"
 #include "UI/WidgetController/AuraWidgetController.h"
 
+// AAuraHUD*& OutAuraHUD -> a reference to a variable that is a pointer.This allows a function to modify the pointer itself, not just the value it points to.This can be useful in situations where you need a function to change what a pointer is pointing to, and have that change be reflected outside the function.
 bool UAuraAbilitySystemLibrary::MakeWidgetControllerParams(const UObject* WorldContextObject, FWidgetControllerParams& OutWCParams, AAuraHUD*& OutAuraHUD)
 {
 	if (APlayerController* PC = UGameplayStatics::GetPlayerController(WorldContextObject, 0))
@@ -35,8 +36,8 @@ bool UAuraAbilitySystemLibrary::MakeWidgetControllerParams(const UObject* WorldC
 UOverlayWidgetController* UAuraAbilitySystemLibrary::GetOverlayWidgetController(const UObject* WorldContextObject)
 {
 	FWidgetControllerParams WCParams;
-	AAuraHUD* AuraHUD = nullptr;
-	if (MakeWidgetControllerParams(WorldContextObject, WCParams, AuraHUD))
+	AAuraHUD* AuraHUD = nullptr; // first initialized to null..
+	if (MakeWidgetControllerParams(WorldContextObject, WCParams, AuraHUD)) //... we pass it to "MakeWidgetControllerParams" and that way after this function has been called,then on a HUD should be filled in and then we call GetOverlayWidgetController
 	{
 		return AuraHUD->GetOverlayWidgetController(WCParams);
 	}
@@ -46,8 +47,8 @@ UOverlayWidgetController* UAuraAbilitySystemLibrary::GetOverlayWidgetController(
 UAttributeMenuWidgetController* UAuraAbilitySystemLibrary::GetAttributeMenuWidgetController(const UObject* WorldContextObject)
 {
 	FWidgetControllerParams WCParams;
-	AAuraHUD* AuraHUD = nullptr;
-	if (MakeWidgetControllerParams(WorldContextObject, WCParams, AuraHUD))
+	AAuraHUD* AuraHUD = nullptr; 
+	if (MakeWidgetControllerParams(WorldContextObject, WCParams, AuraHUD)) 
 	{
 		return AuraHUD->GetAttributeMenuWidgetController(WCParams);
 	}
@@ -57,8 +58,8 @@ UAttributeMenuWidgetController* UAuraAbilitySystemLibrary::GetAttributeMenuWidge
 USpellMenuWidgetController* UAuraAbilitySystemLibrary::GetSpellMenuWidgetController(const UObject* WorldContextObject)
 {
 	FWidgetControllerParams WCParams;
-	AAuraHUD* AuraHUD = nullptr;
-	if (MakeWidgetControllerParams(WorldContextObject, WCParams, AuraHUD))
+	AAuraHUD* AuraHUD = nullptr; 
+	if (MakeWidgetControllerParams(WorldContextObject, WCParams, AuraHUD)) 
 	{
 		return AuraHUD->GetSpellMenuWidgetController(WCParams);
 	}
