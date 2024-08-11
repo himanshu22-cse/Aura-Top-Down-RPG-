@@ -4,7 +4,6 @@
 #include "AbilitySystemComponent.h"
 #include "Interaction/CombatInterface.h"
 
-
 UDebuffNiagaraComponent::UDebuffNiagaraComponent()
 {
 	bAutoActivate = false;
@@ -21,6 +20,10 @@ void UDebuffNiagaraComponent::BeginPlay()
 	}
 	else if (CombatInterface)
 	{
+
+//Lambdas-> are great for simple, short-lived tasks where you can ensure the lifetime of captured objects.
+//Weak Lambdas-> are more appropriate for situations where the object might be destroyed before the lambda is executed, providing a safer way to access objects without risking invalid memory access.
+
 		CombatInterface->GetOnASCRegisteredDelegate().AddWeakLambda(this, [this](UAbilitySystemComponent* InASC)
 			{
 				InASC->RegisterGameplayTagEvent(DebuffTag, EGameplayTagEventType::NewOrRemoved).AddUObject(this, &UDebuffNiagaraComponent::DebuffTagChanged);

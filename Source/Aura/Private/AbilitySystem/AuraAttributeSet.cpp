@@ -236,7 +236,7 @@ void UAuraAttributeSet::Debuff(const FEffectProperties& Props)
 	Effect->StackLimitCount = 1;
 
 	const int32 Index = Effect->Modifiers.Num();  // Since planning using index only once ,so i make Index constant.
-	Effect->Modifiers.Add(FGameplayModifierInfo());
+	Effect->Modifiers.Add(FGameplayModifierInfo()); // FGameplayModifierInfo->Tells us "Who/What we" modify
 	FGameplayModifierInfo& ModifierInfo = Effect->Modifiers[Index];
 
 	ModifierInfo.ModifierMagnitude = FScalableFloat(DebuffDamage);
@@ -245,12 +245,13 @@ void UAuraAttributeSet::Debuff(const FEffectProperties& Props)
 
 	if (FGameplayEffectSpec* MutableSpec = new FGameplayEffectSpec(Effect, EffectContext, 1.f))
 	{
-		FAuraGameplayEffectContext* AuraContext = static_cast<FAuraGameplayEffectContext*>(MutableSpec->GetContext().Get());
+		FAuraGameplayEffectContext* AuraContext = static_cast<FAuraGameplayEffectContext*>(MutableSpec->GetContext().Get()); 
 		TSharedPtr<FGameplayTag> DebuffDamageType = MakeShareable(new FGameplayTag(DamageType));
 		AuraContext->SetDamageType(DebuffDamageType);
 		/** ....Created the gameplay effect spec*/
 
 
+//The ApplyGameplayEffectSpecToSelf function in Unreal Engine's Gameplay Ability System (GAS) is used to apply a predefined FGameplayEffectSpec to the actor or component that owns the UAbilitySystemComponent. This function is often used to apply effects such as buffs, debuffs, or any other gameplay changes (e.g., altering health, attributes, or triggering gameplay events) directly to the actor that owns the ability system component.
 		Props.TargetASC->ApplyGameplayEffectSpecToSelf(*MutableSpec);  //  Apply the gameplayeffectspec
 	}
 }
