@@ -164,7 +164,7 @@ void USpellMenuWidgetController::OnAbilityEquipped(const FGameplayTag& AbilityTa
 
 	StopWaitingForEquipDelegate.Broadcast(AbilityInfo->FindAbilityInfoForTag(AbilityTag).AbilityType); // Stop animations for these ability tags in spell menu.
 	SpellGlobeReassignedDelegate.Broadcast(AbilityTag);
-	GlobeDeselect();
+	GlobeDeselect(); 
 }
 
 void USpellMenuWidgetController::ShouldEnableButtons(const FGameplayTag& AbilityStatus, int32 SpellPoints, bool& bShouldEnableSpellPointsButton, bool& bShouldEnableEquipButton)

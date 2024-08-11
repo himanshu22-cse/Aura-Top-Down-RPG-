@@ -52,7 +52,7 @@ void AAuraProjectile::OnHit()
 	bHit = true;
 }
 
-void AAuraProjectile::Destroyed()
+void AAuraProjectile::Destroyed()  
 {
 	if (LoopingSoundComponent)
 	{
