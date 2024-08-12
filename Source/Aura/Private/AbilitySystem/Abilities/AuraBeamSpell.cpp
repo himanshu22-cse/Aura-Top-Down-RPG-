@@ -15,7 +15,7 @@ void UAuraBeamSpell::StoreMouseDataInfo(const FHitResult& HitResult)
 	{
 		CancelAbility(CurrentSpecHandle, CurrentActorInfo, CurrentActivationInfo, true);
 	}
-}
+} 
 
 void UAuraBeamSpell::StoreOwnerVariables()
 {

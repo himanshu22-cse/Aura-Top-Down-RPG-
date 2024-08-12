@@ -540,8 +540,8 @@ FGameplayEffectContextHandle UAuraAbilitySystemLibrary::ApplyDamageEffect(const 
 
 TArray<FRotator> UAuraAbilitySystemLibrary::EvenlySpacedRotators(const FVector& Forward, const FVector& Axis, float Spread, int32 NumRotators)
 {
-	TArray<FRotator> Rotators;
 
+	TArray<FRotator> Rotators;
 	const FVector LeftOfSpread = Forward.RotateAngleAxis(-Spread / 2.f, Axis);
 	if (NumRotators > 1)
 	{
@@ -563,8 +563,8 @@ TArray<FRotator> UAuraAbilitySystemLibrary::EvenlySpacedRotators(const FVector& 
 
 TArray<FVector> UAuraAbilitySystemLibrary::EvenlyRotatedVectors(const FVector& Forward, const FVector& Axis, float Spread, int32 NumVectors)
 {
-	TArray<FVector> Vectors;
 
+	TArray<FVector> Vectors;
 	const FVector LeftOfSpread = Forward.RotateAngleAxis(-Spread / 2.f, Axis);
 	if (NumVectors > 1)
 	{

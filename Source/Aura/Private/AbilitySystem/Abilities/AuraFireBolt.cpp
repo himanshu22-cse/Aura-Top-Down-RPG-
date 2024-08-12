@@ -114,6 +114,8 @@ void UAuraFireBolt::SpawnProjectiles(const FVector& ProjectileTargetLocation, co
 
 	for (const FRotator& Rot : Rotations)
 	{
+
+// Transforms are a fundamental concept used to represent the position, rotation, and scale of objects in 3D space. A FTransform in Unreal Engine encapsulates this information and is often used to manipulate actors, components, and other objects within the game world.
 		FTransform SpawnTransform;
 		SpawnTransform.SetLocation(SocketLocation);
 		SpawnTransform.SetRotation(Rot.Quaternion());  //Set the Projectile Rotation

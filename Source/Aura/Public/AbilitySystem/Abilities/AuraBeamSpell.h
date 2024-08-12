@@ -4,7 +4,6 @@
 #include "AbilitySystem/Abilities/AuraDamageGameplayAbility.h"
 #include "AuraBeamSpell.generated.h"
 
-
 UCLASS()
 class AURA_API UAuraBeamSpell : public UAuraDamageGameplayAbility
 {
@@ -13,37 +12,37 @@ class AURA_API UAuraBeamSpell : public UAuraDamageGameplayAbility
 public:
 
 	UFUNCTION(BlueprintCallable)
-		void StoreMouseDataInfo(const FHitResult& HitResult);  // Take Hit Result As an input and set those properties.
+	void StoreMouseDataInfo(const FHitResult& HitResult);  // Take Hit Result As an input and set those properties.
 
 	UFUNCTION(BlueprintCallable)
-		void StoreOwnerVariables();
+	void StoreOwnerVariables();
 
 	UFUNCTION(BlueprintCallable)
-		void TraceFirstTarget(const FVector& BeamTargetLocation);
+	void TraceFirstTarget(const FVector& BeamTargetLocation);
 
 	UFUNCTION(BlueprintCallable)
-		void StoreAdditionalTargets(TArray<AActor*>& OutAdditionalTargets);  //Function for Taking Array of actors and create target gameplay cue parameters each one,& apply our electric beam to each one.
+	void StoreAdditionalTargets(TArray<AActor*>& OutAdditionalTargets);  //Function for Taking Array of actors and create target gameplay cue parameters each one,& apply our electric beam to each one.
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void PrimaryTargetDied(AActor* DeadActor);
+	void PrimaryTargetDied(AActor* DeadActor);
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void AdditionalTargetDied(AActor* DeadActor);
+	void AdditionalTargetDied(AActor* DeadActor);
 
 protected:
 
 	UPROPERTY(BlueprintReadWrite, Category = "Beam")
-		FVector MouseHitLocation;
+	FVector MouseHitLocation;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Beam")
-		TObjectPtr<AActor> MouseHitActor;
+	TObjectPtr<AActor> MouseHitActor;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Beam")
-		TObjectPtr<APlayerController> OwnerPlayerController;
+	TObjectPtr<APlayerController> OwnerPlayerController;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Beam")
-		TObjectPtr<ACharacter> OwnerCharacter;
+	TObjectPtr<ACharacter> OwnerCharacter;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Beam")
-		int32 MaxNumShockTargets = 5;
+	int32 MaxNumShockTargets = 5;
 };
