@@ -52,7 +52,6 @@ APointCollection::APointCollection()
 	ImmutablePts.Add(Pt_10);
 	Pt_10->SetupAttachment(GetRootComponent());
 
-
 }
 
 TArray<USceneComponent*> APointCollection::GetGroundPoints(const FVector& GroundLocation, int32 NumPoints, float YawOverride)
