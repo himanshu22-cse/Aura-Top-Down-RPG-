@@ -15,47 +15,46 @@ public:
 
 	//Function For returning scene components as scene components have location,rotation so with these we can use rotation and location to angle our particles.     
 	UFUNCTION(BlueprintPure)// As every time we call this, we're going to want it to be executed a fresh, a new, a different time 
-		TArray<USceneComponent*> GetGroundPoints(const FVector& GroundLocation, int32 NumPoints, float YawOverride = 0.f);
+	TArray<USceneComponent*> GetGroundPoints(const FVector& GroundLocation, int32 NumPoints, float YawOverride = 0.f);
 
 protected:
 
 	virtual void BeginPlay() override;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TArray<USceneComponent*> ImmutablePts;
+	TArray<USceneComponent*> ImmutablePts;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_0;
+	TObjectPtr<USceneComponent> Pt_0;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_1;
+	TObjectPtr<USceneComponent> Pt_1;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_2;
+	TObjectPtr<USceneComponent> Pt_2;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_3;
+	TObjectPtr<USceneComponent> Pt_3;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_4;
+	TObjectPtr<USceneComponent> Pt_4;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_5;
+	TObjectPtr<USceneComponent> Pt_5;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_6;
+	TObjectPtr<USceneComponent> Pt_6;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_7;
+	TObjectPtr<USceneComponent> Pt_7;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_8;
+	TObjectPtr<USceneComponent> Pt_8;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_9;
+	TObjectPtr<USceneComponent> Pt_9;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
-		TObjectPtr<USceneComponent> Pt_10;
-
+	TObjectPtr<USceneComponent> Pt_10;
 
 };

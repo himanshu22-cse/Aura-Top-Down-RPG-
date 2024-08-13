@@ -18,45 +18,45 @@ public:
 	void InitializeLoadSlots();
 
 	UPROPERTY(BlueprintAssignable)
-		FSlotSelected SlotSelected;  // Delegate for enabling and disabling play and delete buttons when slot selected if selected then display the play and delete b
+	FSlotSelected SlotSelected;  // Delegate for enabling and disabling play and delete buttons when slot selected if selected then display the play and delete b
 
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<UMVVM_LoadSlot> LoadSlotViewModelClass;
+	TSubclassOf<UMVVM_LoadSlot> LoadSlotViewModelClass;
 
 	UFUNCTION(BlueprintPure)
-		UMVVM_LoadSlot* GetLoadSlotViewModelByIndex(int32 Index) const; // Function For Retreive  the viewmodel from our TMap(LoadSlots).
+	UMVVM_LoadSlot* GetLoadSlotViewModelByIndex(int32 Index) const; // Function For Retreive  the viewmodel from our TMap(LoadSlots).
 
 	UFUNCTION(BlueprintCallable)
-		void NewSlotButtonPressed(int32 Slot, const FString& EnteredName);
+	void NewSlotButtonPressed(int32 Slot, const FString& EnteredName);
 
 	UFUNCTION(BlueprintCallable)
-		void NewGameButtonPressed(int32 Slot);
+	void NewGameButtonPressed(int32 Slot);
 
 	UFUNCTION(BlueprintCallable)
-		void SelectSlotButtonPressed(int32 Slot);
+	void SelectSlotButtonPressed(int32 Slot);
 
 	UFUNCTION(BlueprintCallable)
-		void DeleteButtonPressed();
+	void DeleteButtonPressed();
 
 	UFUNCTION(BlueprintCallable)
-		void PlayButtonPressed();
+	void PlayButtonPressed();
 
 	void LoadData();
 
 private:
 
 	UPROPERTY()
-		TMap<int32, UMVVM_LoadSlot*> LoadSlots;
+	TMap<int32, UMVVM_LoadSlot*> LoadSlots;
 
 	UPROPERTY()
-		TObjectPtr<UMVVM_LoadSlot> LoadSlot_0;  // We also have a pointer to each loadslot and we'll make sure to each one is not garbage collected.
+	TObjectPtr<UMVVM_LoadSlot> LoadSlot_0;  // We also have a pointer to each loadslot and we'll make sure to each one is not garbage collected.
 
 	UPROPERTY()
-		TObjectPtr<UMVVM_LoadSlot> LoadSlot_1;
+	TObjectPtr<UMVVM_LoadSlot> LoadSlot_1;
 
 	UPROPERTY()
-		TObjectPtr<UMVVM_LoadSlot> LoadSlot_2;
+	TObjectPtr<UMVVM_LoadSlot> LoadSlot_2;
 
 	UPROPERTY()
-		UMVVM_LoadSlot* SelectedSlot;
+	UMVVM_LoadSlot* SelectedSlot;
 };

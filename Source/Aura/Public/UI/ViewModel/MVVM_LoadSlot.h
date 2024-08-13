@@ -17,27 +17,27 @@ class AURA_API UMVVM_LoadSlot : public UMVVMViewModelBase
 public:
 
 	UPROPERTY(BlueprintAssignable)
-		FSetWidgetSwitcherIndex SetWidgetSwitcherIndex;
+	FSetWidgetSwitcherIndex SetWidgetSwitcherIndex;
 
 	UPROPERTY(BlueprintAssignable)
-		FEnableSelectSlotButton EnableSelectSlotButton;
+	FEnableSelectSlotButton EnableSelectSlotButton;
 
 	void InitializeSlot();  // this can basically have this class broadcast its slot index based on whatever its status is from when we've loaded in data.
 
 	UPROPERTY()
-		FString LoadSlotName;
+	FString LoadSlotName;
 
 	UPROPERTY()
-		int32 SlotIndex;
+	int32 SlotIndex;
 
 	UPROPERTY()
-		TEnumAsByte<ESaveSlotStatus> SlotStatus;
+	TEnumAsByte<ESaveSlotStatus> SlotStatus;
 
 	UPROPERTY()
-		FName PlayerStartTag;
+	FName PlayerStartTag;
 
 	UPROPERTY()
-		FString MapAssetName;
+	FString MapAssetName;
 
 	/** Field Notifies */
 
