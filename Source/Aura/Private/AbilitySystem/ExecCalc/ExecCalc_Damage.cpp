@@ -187,6 +187,8 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 						DamageTypeValue = DamageAmount;
 					});
 			}
+
+// ApplyRadialDamageWithFalloff() -> apply damage to actors within a specific radius with the damage amount decreasing (falling off) as the distance from the explosion or source point increases.
 			UGameplayStatics::ApplyRadialDamageWithFalloff(
 				TargetAvatar,
 				DamageTypeValue,

@@ -17,16 +17,16 @@ public:
 	virtual FString GetNextLevelDescription(int32 Level) override;
 
 	UFUNCTION(BlueprintCallable)
-		TArray<AAuraFireBall*> SpawnFireBalls();
+	TArray<AAuraFireBall*> SpawnFireBalls();
 
 protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "FireBlast")
-		int32 NumFireBalls = 12;
+	int32 NumFireBalls = 12;
 
 private:
 
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<AAuraFireBall> FireBallClass;  // A Class That we can use to spawn fireballs.
+	TSubclassOf<AAuraFireBall> FireBallClass;  // A Class That we can use to spawn fireballs.
 
 };

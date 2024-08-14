@@ -58,7 +58,7 @@ TArray<USceneComponent*> APointCollection::GetGroundPoints(const FVector& Ground
 {
 	checkf(ImmutablePts.Num() >= NumPoints, TEXT("Attempted to access ImmutablePts out of bounds."));
 
-	TArray<USceneComponent*> ArrayCopy;
+	TArray<USceneComponent*> ArrayCopy;  // Copy of ImmutablePts (i remove anything from the array ,at least original array won't be touched).
 
 	for (USceneComponent* Pt : ImmutablePts)
 	{

@@ -16,5 +16,5 @@ public:
 	virtual FString GetNextLevelDescription(int32 Level) override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-		int32 MaxNumShards = 11;
+	int32 MaxNumShards = 11;
 };
