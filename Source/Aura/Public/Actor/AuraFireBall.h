@@ -4,7 +4,6 @@
 #include "Actor/AuraProjectile.h"
 #include "AuraFireBall.generated.h"
 
-
 UCLASS()
 class AURA_API AAuraFireBall : public AAuraProjectile
 {

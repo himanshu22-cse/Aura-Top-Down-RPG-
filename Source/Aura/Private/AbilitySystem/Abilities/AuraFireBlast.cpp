@@ -82,6 +82,7 @@ TArray<AAuraFireBall*> UAuraFireBlast::SpawnFireBalls()
 		SpawnTransform.SetLocation(Location);
 		SpawnTransform.SetRotation(Rotator.Quaternion());
 
+//CurrentActorInfo()-> is often used within the context of the Gameplay Ability System (GAS). It typically refers to a pointer of type FGameplayAbilityActorInfo, which contains essential information about the actor currently executing an ability.
 		AAuraFireBall* FireBall = GetWorld()->SpawnActorDeferred<AAuraFireBall>(
 			FireBallClass,
 			SpawnTransform,
