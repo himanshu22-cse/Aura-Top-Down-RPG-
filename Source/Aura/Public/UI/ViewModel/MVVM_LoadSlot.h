@@ -39,7 +39,9 @@ public:
 	UPROPERTY()
 	FString MapAssetName;
 
-	/** Field Notifies */
+	// Field Notify is a system that allows you to automatically notify listeners when a property of an object is updated.
+
+	/** Field Notifies */ 
 
 	// As we defined setter and getter in uproperty of playername , so we have a set and get of the these(FString PlayerName).
 	void SetPlayerName(FString InPlayerName);

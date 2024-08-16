@@ -13,11 +13,11 @@ class AURA_API UAuraGameInstance : public UGameInstance
 public:
 
 	UPROPERTY()
-		FName PlayerStartTag = FName();
+	FName PlayerStartTag = FName();
 
 	UPROPERTY()
-		FString LoadSlotName = FString();
+	FString LoadSlotName = FString();
 
 	UPROPERTY()
-		int32 LoadSlotIndex = 0;
+	int32 LoadSlotIndex = 0;
 };

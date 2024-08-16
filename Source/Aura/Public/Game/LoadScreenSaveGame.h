@@ -6,6 +6,7 @@
 #include "LoadScreenSaveGame.generated.h"
 
 class UGameplayAbility;
+
 UENUM(BlueprintType)
 enum ESaveSlotStatus
 {
@@ -82,8 +83,8 @@ struct FSavedAbility
 {
 	GENERATED_BODY()
 
-     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "ClassDefaults")
-     TSubclassOf<UGameplayAbility> GameplayAbility;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "ClassDefaults")
+    TSubclassOf<UGameplayAbility> GameplayAbility;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	FGameplayTag AbilityTag = FGameplayTag();
@@ -114,10 +115,10 @@ class AURA_API ULoadScreenSaveGame : public USaveGame
 public:
 
 	UPROPERTY()
-		FString SlotName = FString();
+	FString SlotName = FString();
 
 	UPROPERTY()
-		int32 SlotIndex = 0;
+	int32 SlotIndex = 0;
 
 	/*
 what if you want to save one slot with your name, and then save another slot with the same name?
@@ -128,56 +129,56 @@ So we're going to have player name as a separate variable.
 */
 
 	UPROPERTY()
-		FString PlayerName = FString("Default Name");
+	FString PlayerName = FString("Default Name");
 
 	UPROPERTY()
-		FString MapName = FString("Default Map Name");
+	FString MapName = FString("Default Map Name");
 
 	UPROPERTY()
-		FString MapAssetName = FString("Default Map Asset Name");
+	FString MapAssetName = FString("Default Map Asset Name");
 
 	UPROPERTY()
-		FName PlayerStartTag;
+	FName PlayerStartTag;
 
 	UPROPERTY()
-		TEnumAsByte<ESaveSlotStatus> SaveSlotStatus = Vacant;
+	TEnumAsByte<ESaveSlotStatus> SaveSlotStatus = Vacant;
 
 	UPROPERTY()
-		bool bFirstTimeLoadIn = true;
+	bool bFirstTimeLoadIn = true;
 
 	/* Player */
 
 	UPROPERTY()
-		int32 PlayerLevel = 1;
+	int32 PlayerLevel = 1;
 
 	UPROPERTY()
-		int32 XP = 0;
+	int32 XP = 0;
 
 	UPROPERTY()
-		int32 SpellPoints = 0;
+	int32 SpellPoints = 0;
 
 	UPROPERTY()
-		int32 AttributePoints = 0;
+	int32 AttributePoints = 0;
 
 	UPROPERTY()
-		float Strength = 0;
+	float Strength = 0;
 
 	UPROPERTY()
-		float Intelligence = 0;
+	float Intelligence = 0;
 
 	UPROPERTY()
-		float Resilience = 0;
+	float Resilience = 0;
 
 	UPROPERTY()
-		float Vigor = 0;
+	float Vigor = 0;
 
 	/* Abilities */
 
 	UPROPERTY()
-		TArray<FSavedAbility> SavedAbilities; // As we want to save all of our abilities so we can have a array if FSavedAbility.
+	TArray<FSavedAbility> SavedAbilities; // As we want to save all of our abilities so we can have a array if FSavedAbility.
 
 	UPROPERTY()
-		TArray<FSavedMap> SavedMaps; //And because we can have any number of maps that we've been to that we may wish to save actors for.
+	TArray<FSavedMap> SavedMaps; //And because we can have any number of maps that we've been to that we may wish to save actors for.
 
 	FSavedMap GetSavedMapWithMapName(const FString& InMapName);
 	bool HasMap(const FString& InMapName);

@@ -82,7 +82,7 @@ void UMVVM_LoadScreen::DeleteButtonPressed()
 		SelectedSlot->InitializeSlot();
 		SelectedSlot->EnableSelectSlotButton.Broadcast(true);
 	}
-}
+} 
 
 void UMVVM_LoadScreen::PlayButtonPressed()
 {

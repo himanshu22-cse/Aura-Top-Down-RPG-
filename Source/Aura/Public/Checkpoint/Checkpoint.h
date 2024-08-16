@@ -24,15 +24,15 @@ public:
 	/* end Save Interface */
 
 	UPROPERTY(BlueprintReadWrite, SaveGame)  //  to be able to serialize this variable, we give it save game as a uproperty specifier.
-		bool bReached = false;
+	bool bReached = false;
 
 	UPROPERTY(EditAnywhere)
-		bool bBindOverlapCallback = true;
+	bool bBindOverlapCallback = true;
 
 protected:
 
 	UFUNCTION()
-		virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	virtual void BeginPlay() override;
 
@@ -43,20 +43,20 @@ protected:
 	/* Highlight Interface */
 
 	UPROPERTY(VisibleAnywhere)
-		TObjectPtr<USceneComponent> MoveToComponent;
+	TObjectPtr<USceneComponent> MoveToComponent;
 
 	UPROPERTY(EditDefaultsOnly)
-		int32 CustomDepthStencilOverride = CUSTOM_DEPTH_TAN; //if we want to be able to change that custom depth stencil value for any actor derived from checkpoint,this could be a variable.
+	int32 CustomDepthStencilOverride = CUSTOM_DEPTH_TAN; //if we want to be able to change that custom depth stencil value for any actor derived from checkpoint,this could be a variable.
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void CheckpointReached(UMaterialInstanceDynamic* DynamicMaterialInstance);
+	void CheckpointReached(UMaterialInstanceDynamic* DynamicMaterialInstance);
 
 	UFUNCTION(BlueprintCallable)
-		void HandleGlowEffects();
+	void HandleGlowEffects();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		TObjectPtr<UStaticMeshComponent> CheckpointMesh;
+	TObjectPtr<UStaticMeshComponent> CheckpointMesh;
 
 	UPROPERTY(VisibleAnywhere)
-		TObjectPtr<USphereComponent> Sphere;
+	TObjectPtr<USphereComponent> Sphere;
 };
