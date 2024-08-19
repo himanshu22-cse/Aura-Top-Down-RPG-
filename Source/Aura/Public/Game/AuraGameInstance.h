@@ -4,7 +4,6 @@
 #include "Engine/GameInstance.h"
 #include "AuraGameInstance.generated.h"
 
-
 UCLASS()
 class AURA_API UAuraGameInstance : public UGameInstance
 {
