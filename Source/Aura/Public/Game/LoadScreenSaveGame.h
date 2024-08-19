@@ -45,13 +45,6 @@ struct FSavedActor
 
 		We can call this bytes, and we can give it a u property.
 
-		And I'm going to give this a comment that says contains serialized, not really contains, but it is
-
-		serialized variables from the actor.
-
-		Only those marked with save game specifier.
-
-		So that's what bytes is going to contain.
 		*/
 	UPROPERTY()
 	TArray<uint8> Bytes;// Serialized variables from the Actor - only those marked with SaveGame specifier
