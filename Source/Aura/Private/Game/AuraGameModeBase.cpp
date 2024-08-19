@@ -114,7 +114,7 @@ void AAuraGameModeBase::SaveWorldState(UWorld* World, const FString& Destination
 
 			FMemoryWriter MemoryWriter(SavedActor.Bytes);
 
-			FObjectAndNameAsStringProxyArchive Archive(MemoryWriter, true); // It's designed to serialize a you object and f names if we have them,So we can serialize an actor, for instance using f objectand name as string proxy archive.
+			FObjectAndNameAsStringProxyArchive Archive(MemoryWriter, true); // It's designed to serialize a UObject and f names if we have them,So we can serialize an actor, for instance using f objectand name as string proxy archive.
 			Archive.ArIsSaveGame = true;
 
 			Actor->Serialize(Archive);
