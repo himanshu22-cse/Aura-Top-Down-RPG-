@@ -11,7 +11,6 @@ class USaveInterface : public UInterface
 	GENERATED_BODY()
 };
 
-
 class AURA_API ISaveInterface
 {
 	GENERATED_BODY()

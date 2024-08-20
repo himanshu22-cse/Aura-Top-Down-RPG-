@@ -31,6 +31,8 @@ AAuraEnemy::AAuraEnemy()
 	HealthBar->SetupAttachment(GetRootComponent());
 
 	GetMesh()->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
+
+	//When you call MarkRenderStateDirty(), you signal to the engine that the component’s rendering state has changed, and it needs to be updated.
 	GetMesh()->MarkRenderStateDirty();
 	Weapon->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
 	Weapon->MarkRenderStateDirty();

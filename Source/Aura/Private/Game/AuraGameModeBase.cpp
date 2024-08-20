@@ -143,7 +143,6 @@ void AAuraGameModeBase::LoadWorldState(UWorld* World) const
 
 	if (UGameplayStatics::DoesSaveGameExist(AuraGI->LoadSlotName, AuraGI->LoadSlotIndex))
 	{
-
 		ULoadScreenSaveGame* SaveGame = Cast<ULoadScreenSaveGame>(UGameplayStatics::LoadGameFromSlot(AuraGI->LoadSlotName, AuraGI->LoadSlotIndex));
 		if (SaveGame == nullptr)
 		{
