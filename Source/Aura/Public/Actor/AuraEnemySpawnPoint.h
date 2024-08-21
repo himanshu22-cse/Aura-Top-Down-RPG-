@@ -15,14 +15,14 @@ class AURA_API AAuraEnemySpawnPoint : public ATargetPoint
 public:
 
 	UFUNCTION(BlueprintCallable)
-		void SpawnEnemy();
+	void SpawnEnemy();
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enemy Class")
-		TSubclassOf<AAuraEnemy> EnemyClass;
+	TSubclassOf<AAuraEnemy> EnemyClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enemy Class")
-		int32 EnemyLevel = 1;
+	int32 EnemyLevel = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enemy Class")
-		ECharacterClass CharacterClass = ECharacterClass::Warrior;
+	ECharacterClass CharacterClass = ECharacterClass::Warrior;
 };

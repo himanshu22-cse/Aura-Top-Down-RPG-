@@ -234,5 +234,5 @@ void AAuraGameModeBase::PlayerDied(ACharacter* DeadCharacter)
 void AAuraGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
-	Maps.Add(DefaultMapName, DefaultMap);
+	Maps.Add(DefaultMapName, DefaultMap); 
 }
