@@ -22,7 +22,6 @@ struct FLootItem
 	bool bLootLevelOverride = true;
 };
 
-
 UCLASS()
 class AURA_API ULootTiers : public UDataAsset
 {
