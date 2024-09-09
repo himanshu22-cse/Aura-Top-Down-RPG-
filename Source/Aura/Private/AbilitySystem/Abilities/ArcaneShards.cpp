@@ -4,7 +4,7 @@
 FString UArcaneShards::GetDescription(int32 Level)
 {
 	const int32 ScaledDamage = Damage.GetValueAtLevel(Level);
-	const float ManaCost = FMath::Abs(GetManaCost(Level));
+	const float ManaCost = FMath::Abs(GetManaCost(Level));  //absolute value of a given number
 	const float Cooldown = GetCooldown(Level);
 	if (Level == 1)
 	{

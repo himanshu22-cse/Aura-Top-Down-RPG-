@@ -71,7 +71,8 @@ void UAuraBeamSpell::StoreAdditionalTargets(TArray<AActor*>& OutAdditionalTarget
 	ActorsToIgnore.Add(GetAvatarActorFromActorInfo());
 	ActorsToIgnore.Add(MouseHitActor);
 
-	TArray<AActor*> OverlappingActors; // We can Pass "OutAdditionalTargets" in GetLivePlayerWithinRadius as a parameter but then it will get all the actors ,so we need to call out the closest ones.
+	// We can Pass "OutAdditionalTargets" in GetLivePlayerWithinRadius as a parameter but then it will get all the actors ,so we need to call out the closest ones.
+	TArray<AActor*> OverlappingActors; 
 	UAuraAbilitySystemLibrary::GetLivePlayersWithinRadius(
 		GetAvatarActorFromActorInfo(),
 		OverlappingActors,

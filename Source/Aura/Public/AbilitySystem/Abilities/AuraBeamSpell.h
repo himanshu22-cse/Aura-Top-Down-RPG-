@@ -20,8 +20,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void TraceFirstTarget(const FVector& BeamTargetLocation);
 
+	//Function for Taking Array of actors and create target gameplay cue parameters each one,& apply our electric beam to each one.
 	UFUNCTION(BlueprintCallable)
-	void StoreAdditionalTargets(TArray<AActor*>& OutAdditionalTargets);  //Function for Taking Array of actors and create target gameplay cue parameters each one,& apply our electric beam to each one.
+	void StoreAdditionalTargets(TArray<AActor*>& OutAdditionalTargets);  
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void PrimaryTargetDied(AActor* DeadActor);

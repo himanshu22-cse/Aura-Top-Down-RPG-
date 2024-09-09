@@ -34,4 +34,5 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "LootTiers|Spawning")
 	TArray<FLootItem> LootItems;
+
 };
