@@ -244,14 +244,13 @@ void AAuraCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> Gameplay
 
 	We have to add the character.
 
-	 Right?
 	We have to add this.
 
 	Why?
 
 	Because the object itself, which will be aura in this case, or in the case of the enemy, the source
 
-	 object is the class that has the implemented interface function get player level from our combat interface.
+	object is the class that has the implemented interface function get player level from our combat interface.
 
 	 So that's why we need to use the character itself.
 
