@@ -75,7 +75,7 @@ void AAuraCharacter::LoadProgress()
 		}
 		else
 		{
-			//TODO : Load In Abilities From Disk.
+			//Load In Abilities From Disk.
 
 			if (UAuraAbilitySystemComponent* AuraASC = Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent))
 			{
