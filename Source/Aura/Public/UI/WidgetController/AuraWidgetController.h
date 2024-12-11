@@ -117,5 +117,5 @@ them. ( as for example see in overlay widget controller in broadcast  where we j
 	AAuraPlayerController* GetAuraPC();
 	AAuraPlayerState* GetAuraPS();
 	UAuraAbilitySystemComponent* GetAuraASC();
-	UAuraAttributeSet* GetAuraAS();
+	UAuraAttributeSet* GetAuraAS(); // So we can get the actual attribute value rather than hardcoding or setting any values, like in broadcasting initial values of health.
 };

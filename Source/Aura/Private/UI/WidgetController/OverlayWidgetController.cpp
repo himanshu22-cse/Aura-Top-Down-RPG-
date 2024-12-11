@@ -58,7 +58,6 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 
 	*/
 
-
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(GetAuraAS()->GetManaAttribute()).AddLambda(
 		[this](const FOnAttributeChangeData& Data)
 		{
