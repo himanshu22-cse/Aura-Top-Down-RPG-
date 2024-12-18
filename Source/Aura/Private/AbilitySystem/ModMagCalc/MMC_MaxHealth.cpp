@@ -6,9 +6,15 @@
 UMMC_MaxHealth::UMMC_MaxHealth()
 {
 	VigorDef.AttributeToCapture = UAuraAttributeSet::GetVigorAttribute();
+
 	// if we capture we have to define whether it is capturing tatget or source.
 	VigorDef.AttributeSource = EGameplayEffectAttributeCaptureSource::Target;
-	VigorDef.bSnapshot = false;
+
+	/*
+	* Snapshot is capturing the attribute right away and snapshot is releated to timing, When do we want to capture the attribute ?
+	* When the gameplay effect spec is created or when the gameplay effect spec is applied ?
+	*/
+	VigorDef.bSnapshot = false;  
 
 	RelevantAttributesToCapture.Add(VigorDef);
 }

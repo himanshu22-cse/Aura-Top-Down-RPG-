@@ -40,13 +40,13 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 	);
 
 	/*
-	  Now, a lambda is an anonymous function.
+	 Now, a lambda is an anonymous function.
 
-	  It doesn't have a name.
+	 It doesn't have a name.
 
 	 It doesn't get declared anywhere.
 
-	  It's not a member function.
+	 It's not a member function.
 
 	  It's just a function.
 
